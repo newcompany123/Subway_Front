@@ -1,3 +1,5 @@
+import 'bulma/css/bulma.min.css'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -7,5 +9,5 @@ ReactDOM.render(
   <div>
     <App />
   </div>,
-  document.getElementById('root')
+  document.querySelector('#root')
 )

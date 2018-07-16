@@ -4,15 +4,15 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Login from './Login'
 
 export default class App extends React.Component {
-  render() {
+  render () {
     return (
-      <section className="section">
+      <div>
         <BrowserRouter>
           <div>
             <Route exact path='/' component={Login} />
           </div>
         </BrowserRouter>
-      </section>
+      </div>
     )
   }
 }

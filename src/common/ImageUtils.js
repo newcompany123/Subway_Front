@@ -6,6 +6,8 @@ import fbLogo from '../assets/images/logo_fb.svg'
 import ktLogo from '../assets/images/logo_kt.svg'
 import rightArrow from '../assets/images/arrows.svg'
 import love from '../assets/images/love.svg'
+import rightSandwich from '../assets/images/steakEggCheese.png'
+import leftSandwich from '../assets/images/veggieDeliteCopy.png'
 
 const images = {
   logo,
@@ -14,7 +16,9 @@ const images = {
   fbLogo,
   ktLogo,
   rightArrow,
-  love
+  love,
+  rightSandwich,
+  leftSandwich
 }
 
 export {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { COLORS } from '../common/Constants'
 import { images } from '../common/ImageUtils'
@@ -144,14 +145,14 @@ export default class Login extends React.Component {
             </div>
           </div>
           <div className='is-flex' style={styles.skipContainer}>
-            <a>
+            <Link to='/main'>
               <div>
                 <img src={images.rightArrow} style={styles.arrow} alt='right_arrow' />
                 <p style={styles.skipText}>
                   회원가입 건너뛰고 레시피 확인하기
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className='is-flex' style={styles.sandwichContainer}>
             <img style={styles.sandwichImage} src={images.bgSandwich} alt='bg_sandwich' />

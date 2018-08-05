@@ -91,7 +91,7 @@ export default class StatusBar extends React.PureComponent {
         </div>
         <div style={styles.shareContainer}>
           <button className='is-flex' style={styles.shareContents}>
-            <img src={images.share} alt='share' />
+            <img src={images.share} alt='share' width={14} height={14} />
           </button>
         </div>
       </div>

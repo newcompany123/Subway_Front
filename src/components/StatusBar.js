@@ -86,12 +86,12 @@ export default class StatusBar extends React.PureComponent {
         </div>
         <div style={styles.bookmarkContainer}>
           <button className='is-flex' style={styles.bookmarkContents}>
-            <i className='far fa-bookmark' />
+            <img src={images.bookmark} alt='bookmark' />
           </button>
         </div>
         <div style={styles.shareContainer}>
           <button className='is-flex' style={styles.shareContents}>
-            <i className='far fa-bookmark' />
+            <img src={images.share} alt='share' />
           </button>
         </div>
       </div>

@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { COLORS } from '../common/Constants'
 import { images } from '../common/ImageUtils'
+import { actionCreators } from '../models/actions/sandwich'
 
 import SearchBar from './SearchBar'
 import StatusBar from './StatusBar'
@@ -46,12 +48,16 @@ const styles = {
 }
 
 // TODO(royhong): Make DRY
-export default class Main extends React.Component {
+class Main extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       page: 0
     }
+  }
+
+  componentDidMount () {
+    this.props.getRanking()
   }
 
   render () {
@@ -111,3 +117,14 @@ export default class Main extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {}
+}
+
+const mapDispatchToProps = {
+  getRanking: actionCreators.getRanking
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)

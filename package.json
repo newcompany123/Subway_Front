@@ -26,9 +26,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile:sass": "node-sass sass/main.scss public/styles.css -w"
   },
   "devDependencies": {
+    "node-sass": "^4.9.3",
     "prop-types": "^15.6.2",
     "standard": "^11.0.1"
   }

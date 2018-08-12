@@ -1,5 +1,5 @@
 // TODO(royhong): remove bulma. use native css
-import 'bulma/css/bulma.min.css'
+// import 'bulma/css/bulma.min.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'

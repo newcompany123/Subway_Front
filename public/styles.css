@@ -1,8 +1,8 @@
-@media screen and (min-width: 400px) {
-  .login-container--main {
-    padding: 300px; }
+@media screen and (min-width: 40rem) {
+  .logo-container {
+    padding-top: 10rem; }
   .bottom-sandwich__image {
-    padding: 0 300px; } }
+    padding: 0 30rem; } }
 
 *,
 *::after,
@@ -28,98 +28,99 @@ body {
 
 .logo-container {
   justify-content: center;
-  padding-top: 30%;
-  padding-bottom: 18%;
+  padding-top: 19rem;
+  padding-bottom: 11rem;
   display: flex; }
   .logo-container__logo {
-    width: 44%;
-    height: 8%;
+    width: 24rem;
+    height: 4rem;
     display: block;
     margin: auto;
     justify-content: center;
     align-items: center; }
 
 .facebook-login {
-  padding-top: 3.125%;
-  padding-bottom: 0.625%;
+  padding-top: 11rem;
+  padding-bottom: 0.4rem;
   display: flex;
   justify-content: center;
   flex-direction: row; }
   .facebook-login__button {
-    width: 230px;
-    height: 40px;
     display: flex;
-    flex-direction: row;
-    border-radius: 20px;
+    width: 23rem;
+    height: 4rem;
+    border-radius: 2rem;
+    align-items: center;
+    justify-content: flex-start;
     background-color: #507cc0; }
   .facebook-login--border {
     width: 0.5px;
-    height: 24px;
+    height: 2.4rem;
     margin: auto 0;
-    margin-left: 17px;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    margin-left: 1.7rem; }
   .facebook-login__text {
     font-weight: bold;
-    font-size: 10px;
+    font-size: 1rem;
     margin: auto 0;
-    margin-left: 14px;
-    color: #ffffff; }
+    color: #ffffff;
+    margin-left: 1.4rem; }
   .facebook-login__logo {
     margin: auto 0;
     justify-content: center;
     align-items: center;
-    width: 12px;
-    height: 21px;
-    margin-left: 25px; }
+    width: 1.2rem;
+    height: 2.1rem;
+    margin-left: 2.5rem; }
 
 .kakao-login {
-  padding-top: 0.625%;
-  padding-bottom: 2.5%;
+  padding-bottom: 1.6rem;
   display: flex;
   justify-content: center; }
   .kakao-login--button {
     display: flex;
-    width: 230px;
-    height: 40px;
-    border-radius: 20px;
+    width: 23rem;
+    height: 4rem;
+    border-radius: 2rem;
     align-items: center;
     justify-content: flex-start;
     background-color: #ffcd00; }
   .kakao-login__logo {
-    width: 23px;
-    height: 22px;
+    width: 2.3rem;
+    height: 2.2rem;
     margin: auto 0;
-    margin-left: 22px; }
+    margin-left: 2.2rem; }
   .kakao-login--border {
     width: 0.5px;
-    height: 24px;
+    height: 2.4rem;
     margin: auto 0;
-    margin-left: 9px;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    margin-left: 0.9rem; }
   .kakao-login__text {
-    font-size: 10px;
+    font-weight: bold;
+    font-size: 1rem;
     margin: auto 0;
-    margin-left: 21px;
     color: #ffffff;
-    font-weight: bold; }
+    margin-left: 2.1rem; }
 
 .skip-container {
   display: flex;
   justify-content: center;
-  margin-top: 16px; }
+  margin-top: 1.6rem; }
   .skip-container__arrow {
-    width: 10px;
-    height: 10px;
+    width: 1rem;
+    height: 1rem;
     justify-content: center; }
   .skip-container__text {
     display: inline;
-    padding-left: 5px;
-    padding-bottom: 27%;
-    font-size: 12px;
+    padding-left: 0.5rem;
+    padding-bottom: 4.3rem;
+    font-size: 1.2rem;
     color: #9b9b9b; }
 
 .bottom-sandwich__image {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 21%; }
+  height: 13.4rem;
+  z-index: -1; }

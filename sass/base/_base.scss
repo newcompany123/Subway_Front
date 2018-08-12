@@ -1,0 +1,28 @@
+@media screen and (min-width: 40rem) {
+    .logo-container {
+        padding-top: 10rem;
+    }
+    .bottom-sandwich__image {
+        padding: 0 30rem;
+    }
+}
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* root. 10 to make calculations easier */
+html {
+  // This defines what 1 rem is
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+}

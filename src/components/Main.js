@@ -1,7 +1,7 @@
 import _ from 'lodash'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 
 import { COLORS } from '../common/Constants'
 import { actionCreators } from '../models/actions/sandwich'
@@ -48,14 +48,52 @@ const styles = {
   }
 }
 
+const initialState = {
+  isLoading: false,
+  error: false
+}
+
 // TODO(royhong): Make DRY
 class Main extends React.Component {
   static propTypes = {
     page: PropTypes.number.isRequired
   }
 
-  componentDidMount () {
+  constructor (props) {
+    super (props)
+    // Sets up our initial state
+    this.state = {
+      error: false,
+      isLoading: false,
+      hasMore: true
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      ...initialState
+    })
+    window.addEventListener('scroll', this._onScroll, false);
     this.props.getRanking(this.props.page)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll, false);
+  }
+
+
+  _onScroll = () => {
+    const { error, isLoading, hasMore } = this.state;
+    if (error || isLoading || !hasMore) return;
+
+    const reachedBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight
+
+    if (reachedBottom) {
+      this.setState({
+        isLoading: true
+      })
+      this.props.getRanking(this.props.page);
+    }
   }
 
   _renderRight (item, index) {

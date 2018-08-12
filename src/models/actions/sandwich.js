@@ -8,7 +8,6 @@ export const actionTypes = {
 }
 
 const getRanking = (page) => async dispatch => {
-  console.log(page)
   const response = await axios.get(`/recipe/?page=${page}&page_size=${PAGE_SIZE}`)
   dispatch({ type: GET_RANKING, payload: response.data.results })
 }

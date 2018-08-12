@@ -13,7 +13,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_RANKING:
       return produce(state, (draft) => {
-          draft.Main.items = action.payload
+        draft.Main.page += 1
+        draft.Main.items = draft.Main.items.concat(action.payload)
       })
     default:
       return state

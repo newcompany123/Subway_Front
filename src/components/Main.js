@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { COLORS } from '../common/Constants'
 import { actionCreators } from '../models/actions/sandwich'
@@ -49,15 +50,12 @@ const styles = {
 
 // TODO(royhong): Make DRY
 class Main extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      page: 0
-    }
+  static propTypes = {
+    page: PropTypes.number.isRequired
   }
 
   componentDidMount () {
-    this.props.getRanking()
+    this.props.getRanking(this.props.page)
   }
 
   _renderRight (item, index) {
@@ -137,7 +135,7 @@ class Main extends React.Component {
 }
 
 const mapStateToProps = ({ sandwich }) => ({
-  items: sandwich.ranking
+  ...sandwich.Main
 })
 
 const mapDispatchToProps = {

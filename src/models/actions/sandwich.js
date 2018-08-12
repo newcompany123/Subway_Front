@@ -1,13 +1,15 @@
 import axios from 'axios'
 
 const GET_RANKING = 'mysubway/sandwich/GET_RANKING'
+const PAGE_SIZE = 5
 
 export const actionTypes = {
   GET_RANKING
 }
 
-const getRanking = () => async dispatch => {
-  const response = await axios.get('/recipe/?page=1&page_size=5')
+const getRanking = (page) => async dispatch => {
+  console.log(page)
+  const response = await axios.get(`/recipe/?page=${page}&page_size=${PAGE_SIZE}`)
   dispatch({ type: GET_RANKING, payload: response.data.results })
 }
 

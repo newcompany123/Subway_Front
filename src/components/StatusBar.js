@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { images } from '../common/ImageUtils'
 
@@ -15,7 +16,7 @@ const styles = {
     backgroundColor: 'transparent'
   },
   currentLoves: {
-    marginLeft: 5,
+    marginLeft: 3,
     display: 'inline',
     fontSize: 10
   },
@@ -56,19 +57,18 @@ const styles = {
 }
 
 export default class StatusBar extends React.PureComponent {
-  constructor (props) {
-    super(props)
-    this.state = {
-      numLoves: 256
-    }
-  }
+  static propTypes = {
+    likes: PropTypes.number.isRequired
+  };
 
   // TODO(royhong): Switch second bookmark to export icon
   render () {
+    const { likes } = this.props
+
     const outerContainer = {}
     const loveContainer = {}
 
-    if (this.props.id % 2 === 1) {
+    if (this.props.id % 2 === 0) {
       _.assign(outerContainer, styles.outerContainer, {justifyContent: 'flex-end'})
       _.assign(loveContainer, styles.loveContainer)
     } else {
@@ -81,7 +81,7 @@ export default class StatusBar extends React.PureComponent {
         <div>
           <button className='is-flex' style={loveContainer}>
             <img src={images.love} style={styles.loveIcon} alt='love' />
-            <p style={styles.currentLoves}> {this.state.numLoves}명이 좋아해요</p>
+            <p style={styles.currentLoves}> {likes}명이 좋아해요</p>
           </button>
         </div>
         <div style={styles.bookmarkContainer}>

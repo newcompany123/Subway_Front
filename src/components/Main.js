@@ -61,7 +61,6 @@ class Main extends React.Component {
   }
 
   _renderRight (item, index) {
-    console.log(item)
     return (
       <div key={index}>
         <div className='is-flex' style={{ flexDirection: 'column-reverse' }}>
@@ -84,7 +83,7 @@ class Main extends React.Component {
             <img src={item.sandwich.image_right} alt='sandwich_right' />
           </div>
         </div>
-        <StatusBar id={1} />
+        <StatusBar id={index} likes={item.like_count} />
       </div>
     )
   }
@@ -112,7 +111,7 @@ class Main extends React.Component {
             <img src={item.sandwich.image_left} height={160} width={320} alt='sample_left' />
           </div>
         </div>
-        <StatusBar id={2} />
+        <StatusBar id={index} likes={item.like_count} />
       </div>
     )
   }

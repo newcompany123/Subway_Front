@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import Login from './components/Login'
-import Main from './components/Main'
+import Ranking from './components/Ranking'
 
 export default class AppRouter extends React.Component {
   render () {
@@ -10,7 +10,7 @@ export default class AppRouter extends React.Component {
       <BrowserRouter>
         <div>
           <Route exact path='/' component={Login} />
-          <Route exact path='/main' component={Main} />
+          <Route exact path='/ranking' component={Ranking} />
         </div>
       </BrowserRouter>
     )

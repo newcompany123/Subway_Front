@@ -15,8 +15,7 @@ const initialState = {
   error: false
 }
 
-// TODO(royhong): Make DRY
-class Main extends React.Component {
+class Ranking extends React.Component {
   static propTypes = {
     page: PropTypes.number.isRequired
   }
@@ -63,23 +62,23 @@ class Main extends React.Component {
   _renderRight (item, index) {
     return (
       <div key={index}>
-        <div className='sandwich-item sandwich-item--right'>
+        <div className='sandwich-item--right'>
           <img src={item.sandwich.image_right} alt='sandwich_right' />
         </div>
         <div className='sandwich-item__details--right'>
-          <div className='sandwich-item__container sandwich-item__container--right'>
+          <div className='sandwich-item__container--right'>
             <div className='sandwich-item__container__name-ranking--right'>
-              <p className='sandwich-item__container__name-ranking sandwich-item__container__name-ranking__name--right'>
+              <p className='sandwich-item__container__name-ranking__name--right'>
                 { item.name.name }
               </p>
-              <p className='sandwich-item__container__name-ranking sandwich-item__container__name-ranking__ranking'>
+              <p className='sandwich-item__container__name-ranking__ranking'>
                 { String(index + 1).padStart(2, '0') }
               </p>
             </div>
           </div>
         </div>
-        <div className='sandwich-item__divider sandwich-item__divider--right'>
-          <div className='sandwich-item__divider-green' />
+        <div className='sandwich-item__divider-container--right'>
+          <div className='sandwich-item__divider-container__divider' />
         </div>
         <StatusBar id={index} likes={item.like_count} />
       </div>
@@ -89,23 +88,23 @@ class Main extends React.Component {
   _renderLeft (item, index) {
     return (
       <div key={index}>
-        <div className='sandwich-item sandwich-item--left'>
+        <div className='sandwich-item--left'>
           <img src={item.sandwich.image_left} alt='sandwich_left' />
         </div>
         <div className='sandwich-item__details--left'>
-          <div className='sandwich-item__container sandwich-item__container--left'>
+          <div className='sandwich-item__container--left'>
             <div className='sandwich-item__container__name-ranking--left'>
-              <p className='sandwich-item__container__name-ranking sandwich-item__container__name-ranking__name--left'>
+              <p className='sandwich-item__container__name-ranking__name--left'>
                 { item.name.name }
               </p>
-              <p className='sandwich-item__container__name-ranking sandwich-item__container__name-ranking__ranking'>
+              <p className='sandwich-item__container__name-ranking__ranking'>
                 { String(index + 1).padStart(2, '0') }
               </p>
             </div>
           </div>
         </div>
-        <div className='sandwich-item__divider sandwich-item__divider--left'>
-          <div className='sandwich-item__divider-green' />
+        <div className='sandwich-item__divider-container--left'>
+          <div className='sandwich-item__divider-container__divider' />
         </div>
         <StatusBar id={index} likes={item.like_count} />
       </div>
@@ -133,11 +132,11 @@ class Main extends React.Component {
 }
 
 const mapStateToProps = ({ sandwich }) => ({
-  ...sandwich.Main
+  ...sandwich.Ranking
 })
 
 const mapDispatchToProps = {
   getRanking: actionCreators.getRanking
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(Ranking)

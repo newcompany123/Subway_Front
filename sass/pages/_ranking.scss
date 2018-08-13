@@ -1,0 +1,116 @@
+.sandwich-item {
+    display: flex;
+    flex-direction: row;
+    margin-top: 21px;
+
+    &--right {
+        @extend .sandwich-item;
+        justify-content: flex-end;
+    }
+
+    &--left {
+        @extend .sandwich-item;
+        justify-content: flex-start;
+    }
+
+
+    &__divider-container {
+        display: flex;
+        padding: 2;
+
+        &--right {
+            @extend .sandwich-item__divider-container;
+            justify-content: flex-end;
+        }
+        &--left {
+            @extend .sandwich-item__divider-container;
+            justify-content: flex-start;
+        }
+
+        &__divider {
+            width: 56px;
+            height: 4px;
+            margin-top: -4px;
+            background-color: $color-GREEN;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: row;
+        margin-top: -25px;
+
+        &--right {
+            @extend .sandwich-item__details;
+            justify-content: flex-end;
+        }
+        &--left {
+            @extend .sandwich-item__details;
+            justify-content: flex-start;
+        }
+    }
+
+    &__container {
+        display: flex;
+        width: 34rem;
+        height: auto;
+        border-radius: 4px;
+        background-color: $color-LIGHT_GREY;
+        z-index: -1;
+
+        &--left {
+            @extend .sandwich-item__container;
+            justify-content: flex-start;
+        }
+        &--right {
+            @extend .sandwich-item__container;
+            justify-content: flex-end;
+        }
+
+        &__name-ranking {
+            display: flex;
+
+            &--left {
+                @extend .sandwich-item__container__name-ranking;
+                flex-direction: row-reverse;
+            }
+
+            &--right {
+                @extend .sandwich-item__container__name-ranking;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+
+            &__ranking {
+                height: 100%;
+                justify-content: center;
+
+                font-size: 64px;
+                font-weight: bold;
+                margin-right: 14px;
+                z-index: 3;
+            }
+
+            &__name {
+                display: flex;
+                width: 24rem;
+                height: 100%;
+                align-items: center;
+                z-index: 3;
+                font-weight: bold;
+                margin: 0 14px;
+                font-size: 26px;
+            }
+
+            &__name--left {
+                @extend .sandwich-item__container__name-ranking__name;
+                justify-content: flex-start;
+            }
+
+            &__name--right {
+                @extend .sandwich-item__container__name-ranking__name;
+                justify-content: flex-end;
+            }
+        }
+    }
+}

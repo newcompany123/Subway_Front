@@ -4,3 +4,25 @@
 @import "base/base";
 
 @import "pages/login";
+
+.search {
+    display: flex;
+    justify-content: center;
+
+    &--border {
+        display: inline-flex;
+        border: 1px solid $color-WARM_GREY;
+        vertical-align: middle;
+        height: 2.8rem;
+    }
+
+    &--contents {
+        border: none;
+        height: 2.6rem;
+    }
+
+    &__icon {
+        margin-left: 1rem;
+        margin-right: 0.6rem;
+    }
+}

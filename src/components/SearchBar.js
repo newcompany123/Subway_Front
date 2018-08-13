@@ -1,23 +1,13 @@
 import React from 'react'
-
-const styles = {
-  outerContainer: {
-    justifyContent: 'center'
-  },
-  searchBar: {
-    width: '80%'
-  }
-}
+import { images } from '../common/ImageUtils'
 
 export default class SearchBar extends React.PureComponent {
   render () {
     return (
-      <div className='is-flex' style={styles.outerContainer}>
-        <div className='control has-icons-left' style={styles.searchBar}>
-          <input className='input is-medium' type='text' placeholder='레시피 검색하기' />
-          <span className='icon is-small is-left'>
-            <i className='fas fa-search' />
-          </span>
+      <div className='search'>
+        <div className='search--border'>
+          <img className='search__icon' src={images.icSearch} alt='search' />
+          <input className='search--contents' type='text' placeholder='레시피 검색하기' />
         </div>
       </div>
     )

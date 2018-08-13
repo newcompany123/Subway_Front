@@ -1,6 +1,7 @@
 // TODO(royhong): replace later with S3
 import bgSandwich from '../assets/images/bg_sandwich.png'
 import bookmark from '../assets/images/bookmark.png'
+import icSearch from '../assets/images/ic_search.svg'
 import logo from '../assets/images/logo.png'
 import fbBanner from '../assets/images/btn_login_fb.svg'
 import fbLogo from '../assets/images/logo_fb.svg'
@@ -17,6 +18,7 @@ const images = {
   bookmark,
   fbBanner,
   fbLogo,
+  icSearch,
   ktLogo,
   rightArrow,
   love,

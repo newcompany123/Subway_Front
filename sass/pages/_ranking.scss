@@ -1,16 +1,16 @@
 .sandwich-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 21px;
 
     &--right {
         @extend .sandwich-item;
-        justify-content: flex-end;
+        align-items: flex-end;
     }
 
     &--left {
         @extend .sandwich-item;
-        justify-content: flex-start;
+        align-items: flex-start;
     }
 
 
@@ -52,7 +52,8 @@
 
     &__container {
         display: flex;
-        width: 34rem;
+        flex-direction: column;
+        width: 36rem;
         height: auto;
         border-radius: 4px;
         background-color: $color-LIGHT_GREY;
@@ -60,11 +61,12 @@
 
         &--left {
             @extend .sandwich-item__container;
-            justify-content: flex-start;
+            align-items: flex-start;
         }
         &--right {
             @extend .sandwich-item__container;
-            justify-content: flex-end;
+            align-items: flex-end;
+            // align-items: center;
         }
 
         &__name-ranking {
@@ -88,15 +90,15 @@
                 font-size: 64px;
                 font-weight: bold;
                 margin-right: 14px;
-                z-index: 3;
+                z-index: 5;
             }
 
             &__name {
                 display: flex;
                 width: 24rem;
                 height: 100%;
-                align-items: center;
-                z-index: 3;
+                align-items: flex-end;
+                z-index: 5;
                 font-weight: bold;
                 margin: 0 14px;
                 font-size: 26px;
@@ -104,12 +106,17 @@
 
             &__name--left {
                 @extend .sandwich-item__container__name-ranking__name;
+                flex-direction: column;
                 justify-content: flex-start;
+                align-items: flex-start;
+                align-self: center;
             }
 
             &__name--right {
                 @extend .sandwich-item__container__name-ranking__name;
-                justify-content: flex-end;
+                flex-direction: column;
+                align-items: flex-end;
+                align-self: center;
             }
         }
     }

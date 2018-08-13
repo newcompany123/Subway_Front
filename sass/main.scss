@@ -3,26 +3,69 @@
 
 @import "base/base";
 
+@import "layout/search";
+
 @import "pages/login";
 
-.search {
+.status-bar {
+    &--left {
+        @include status-bar;
+        justify-content: flex-start;
+        margin-left: 1.6rem;
+    }
+
+    &--right {
+        @include status-bar;
+        justify-content: flex-end;
+        margin-right: 1.6rem;
+    }
+}
+
+.like-container {
     display: flex;
+    width: 11.4rem;
+    height: 2.5rem;
+    flex-direction: row;
     justify-content: center;
-
-    &--border {
-        display: inline-flex;
-        border: 1px solid $color-WARM_GREY;
-        vertical-align: middle;
-        height: 2.8rem;
-    }
-
-    &--contents {
-        border: none;
-        height: 2.6rem;
-    }
+    background-color: transparent;
+    border-radius: 1.2rem;
 
     &__icon {
-        margin-left: 1rem;
-        margin-right: 0.6rem;
+        justify-content: center;
+    }
+
+    &__status {
+        margin-left: 0.3rem;
+        font-size: 1rem;
+    }
+}
+
+.bookmark-container {
+    display: block;
+    margin-left: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.2rem;
+    background-color: transparent;
+    text-align: center;
+
+    &__icon {
+        width: 1.3rem;
+        height: 1.6rem;
+    }
+}
+
+.share-container {
+    display: block;
+    margin-left: 0.7rem;
+    margin-right: 1.7rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.2rem;
+    background-color: transparent;
+
+    &__icon {
+        width: 1.4rem;
+        height: 1.4rem;
     }
 }

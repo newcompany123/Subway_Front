@@ -20,3 +20,10 @@
     align-items: center;
     justify-content: flex-start;
 }
+
+@mixin status-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 7px;
+}

@@ -65,6 +65,8 @@ class Main extends React.Component {
     this.state = {
       error: false,
       isLoading: false,
+
+      //move hasMore to redux. keep track
       hasMore: true
     }
   }

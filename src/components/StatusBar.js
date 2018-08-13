@@ -1,11 +1,12 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 import { images } from '../common/ImageUtils'
 
 export default class StatusBar extends React.PureComponent {
   static propTypes = {
-    likes: PropTypes.number.isRequired
+    likes: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired
   };
 
   render () {
@@ -22,7 +23,7 @@ export default class StatusBar extends React.PureComponent {
             <p className='like-container__status'> {likes}명이 좋아해요</p>
           </button>
           <button className='bookmark-container'>
-            <img className='bookmark-container__icon' src={images.bookmark} alt='bookmark' />
+            <img src={images.bookmark} alt='bookmark' />
           </button>
           <button className='share-container'>
             <img src={images.share} alt='share' />

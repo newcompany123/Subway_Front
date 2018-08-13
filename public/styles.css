@@ -187,3 +187,75 @@ body {
   width: 100%;
   height: 13.4rem;
   z-index: -1; }
+
+.sandwich-item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 21px; }
+  .sandwich-item--right {
+    justify-content: flex-end; }
+  .sandwich-item--left {
+    justify-content: flex-start; }
+  .sandwich-item__divider-green {
+    width: 56px;
+    height: 4px;
+    margin-top: -4px;
+    background-color: #228B22; }
+  .sandwich-item__divider {
+    display: flex; }
+    .sandwich-item__divider--right {
+      justify-content: flex-end; }
+    .sandwich-item__divider--left {
+      justify-content: flex-start; }
+  .sandwich-item__details--right {
+    display: flex;
+    flex-direction: row;
+    margin-top: -25px;
+    justify-content: flex-end; }
+  .sandwich-item__details--left {
+    flex-direction: row;
+    margin-top: -25px;
+    justify-content: flex-start; }
+  .sandwich-item__container {
+    display: flex;
+    width: 34rem;
+    height: auto;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    z-index: -1; }
+    .sandwich-item__container--left {
+      justify-content: flex-start; }
+    .sandwich-item__container--right {
+      justify-content: flex-end; }
+    .sandwich-item__container__name-ranking--left {
+      display: flex;
+      flex-direction: row-reverse; }
+    .sandwich-item__container__name-ranking--right {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end; }
+    .sandwich-item__container__name-ranking__ranking {
+      height: 100%;
+      justify-content: center;
+      font-size: 64px;
+      font-weight: bold;
+      margin-right: 14px; }
+    .sandwich-item__container__name-ranking__name--left {
+      display: flex;
+      width: 24rem;
+      height: 100%;
+      align-items: center;
+      z-index: 5;
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0 14px; }
+    .sandwich-item__container__name-ranking__name--right {
+      display: flex;
+      width: 24rem;
+      height: 100%;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 5;
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0 14px; }

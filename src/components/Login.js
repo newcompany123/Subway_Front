@@ -11,7 +11,7 @@ class Login extends React.Component {
     if (loggedIn === true) {
       this.props.loginUser(result.authResponse.accessToken)
     } else {
-      alert('Facebook login error');
+      // alert('Facebook login error');
     }
   }
 

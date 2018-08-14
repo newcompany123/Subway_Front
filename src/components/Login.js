@@ -3,18 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { images } from '../common/ImageUtils'
+
 import FacebookLogin from './FacebookLogin'
-import { actionCreators } from '../models/actions/user'
+import Kakao from './Kakao'
 
 class Login extends React.Component {
-  onFacebookLogin = (loggedIn, result) => {
-    if (loggedIn === true) {
-      this.props.loginUser(result.authResponse.accessToken)
-    } else {
-      // alert('Facebook login error');
-    }
-  }
-
   render () {
     return (
       <div className='login-container'>
@@ -22,16 +15,8 @@ class Login extends React.Component {
           <div className='logo-container'>
             <img className='logo-container__logo' src={images.logo} alt='logo' />
           </div>
-          <FacebookLogin onLogin={this.onFacebookLogin} />
-          <div className='kakao-login'>
-            <a className='kakao-login--button'>
-              <img className='kakao-login__logo' src={images.ktLogo} alt='kt_logo' />
-              <div className='kakao-login--border' />
-              <p className='kakao-login__text'>
-                카카오 계정으로 로그인
-              </p>
-            </a>
-          </div>
+          <FacebookLogin />
+          <Kakao />
           <div className='skip-container'>
             <Link to='/ranking'>
               <div>
@@ -55,8 +40,4 @@ const mapStateToProps = ({ user }) => ({
   ...user
 })
 
-const mapDispatchToProps = {
-  loginUser: actionCreators.loginUser
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps)(Login)

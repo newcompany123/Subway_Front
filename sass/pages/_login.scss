@@ -23,8 +23,8 @@
 }
 
 .facebook-login {
-    padding-top: 11rem;
-    padding-bottom: 0.4rem;
+    margin-top: 11rem;
+    margin-bottom: 0.4rem;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -32,6 +32,7 @@
     &__button {
         @include login-button;
         background-color: $color-SEA_BLUE;
+        border-width: 0;
     }
 
     &--border {
@@ -56,13 +57,16 @@
 }
 
 .kakao-login {
-    padding-bottom: 1.6rem;
+    margin-bottom: 1.6rem;
     display: flex;
     justify-content: center;
+    flex-direction: row;
 
     &--button {
         @include login-button;
         background-color: $color-YELLOW;
+        border-width: 0;
+        margin: 0 auto;
     }
 
     &__logo {

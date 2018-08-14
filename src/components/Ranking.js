@@ -20,33 +20,32 @@ class Ranking extends React.Component {
   }
 
   constructor (props) {
-    super (props)
+    super(props)
     // Sets up our initial state
     this.state = {
       error: false,
       isLoading: false,
       details: {},
-      //move hasMore to redux. keep track
+      // move hasMore to redux. keep track
       hasMore: true
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.setState({
       ...initialState
     })
-    window.addEventListener('scroll', this._onScroll, false);
+    window.addEventListener('scroll', this._onScroll, false)
     this.props.getRanking(this.props.page)
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this._onScroll, false);
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this._onScroll, false)
   }
 
-
   _onScroll = () => {
-    const { error, isLoading, hasMore } = this.state;
-    if (error || isLoading || !hasMore) return;
+    const { error, isLoading, hasMore } = this.state
+    if (error || isLoading || !hasMore) return
 
     const reachedBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight
 
@@ -54,7 +53,7 @@ class Ranking extends React.Component {
       this.setState({
         isLoading: true
       })
-      this.props.getRanking(this.props.page);
+      this.props.getRanking(this.props.page)
     }
   }
 
@@ -82,12 +81,12 @@ class Ranking extends React.Component {
         </div>
       ))
       : (
-      <div>
-        <img src={category.route.image} className='item-detail__image' alt={category.name} />
-        <p className='item-detail--container__name'>
-          { category.route.name }
-        </p>
-      </div>
+        <div>
+          <img src={category.route.image} className='item-detail__image' alt={category.name} />
+          <p className='item-detail--container__name'>
+            { category.route.name }
+          </p>
+        </div>
       )
     return (
       <div key={category.title} className='item-detail'>
@@ -138,7 +137,7 @@ class Ranking extends React.Component {
             { existing && _.map(this._getDetails(item), category => this._showDetails(category)) }
           </div>
         </div>
-          <StatusBar id={index} likes={item.like_count} />
+        <StatusBar id={index} likes={item.like_count} highlight={existing} />
       </div>
     )
   }
@@ -169,7 +168,7 @@ class Ranking extends React.Component {
             { existing && _.map(this._getDetails(item), category => this._showDetails(category)) }
           </div>
         </div>
-          <StatusBar id={index} likes={item.like_count} highlight={existing} />
+        <StatusBar id={index} likes={item.like_count} highlight={existing} />
       </div>
     )
   }

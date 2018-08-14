@@ -8,3 +8,35 @@
 
 @import "pages/login";
 @import "pages/ranking";
+
+.item-detail {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-top: 10px;
+    margin-left: 20px;
+
+    &__title {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    &--container {
+        display: flex;
+        width: 315px;
+        background-color: $color-WHITE;
+        flex-direction: row;
+        margin-top: 10px;
+
+        &__name {
+            text-align: center;
+        }
+    }
+
+    &__image {
+        width: 8rem;
+        height: 5.5rem;
+    }
+
+}

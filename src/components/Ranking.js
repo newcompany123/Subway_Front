@@ -8,7 +8,6 @@ import { actionCreators } from '../models/actions/sandwich'
 import SearchBar from './SearchBar'
 import StatusBar from './StatusBar'
 
-// TODO(royhong): Make Contents responsive
 const initialState = {
   isLoading: false,
   error: false
@@ -72,90 +71,54 @@ class Ranking extends React.Component {
     }
   }
 
-  _showDetails = (item) => {
+  _showDetails = (category) => {
+    let detail
+    detail = category.multi
+      ? _.map(category.route, item => (
+        <div key={item.name}>
+          <img src={item.image} className='item-detail__image' alt={item.name} />
+          <p className='item-detail--container__name'>
+            { item.name }
+          </p>
+        </div>
+      ))
+      : (
+      <div>
+        <img src={category.route.image} className='item-detail__image' alt={category.name} />
+        <p className='item-detail--container__name'>
+          { category.route.name }
+        </p>
+      </div>
+      )
     return (
-      <div style={{display: 'flex', flexDirection: 'column', marginTop: 21, marginLeft: 20, alignSelf: 'flex-start'}}>
-        <p style={{ fontSize: 14, fontWeight: 'bold'}}>
-          메인 재료
+      <div key={category.title} className='item-detail'>
+        <p className='item-detail__title'>
+          { category.title }
         </p>
-        <div style={{ display: 'flex', width: 315, backgroundColor: '#fff', flexDirection: 'row', marginTop: 10 }}>
-          {_.map(item.sandwich.main_ingredient, (main) => (
-            <div>
-              <img src={main.image} />
-              <p style={{ textAlign: 'center' }}>{ main.name }</p>
-            </div>
-          ))}
-        </div>
-        <p style={{ fontSize: 14, fontWeight: 'bold', marginTop: 10 }}>
-          빵 선택
-        </p>
-        <div style={{ display: 'flex', width: 315, backgroundColor: '#fff', flexDirection: 'row', marginTop: 10 }}>
-          <div>
-            <img src={item.bread.image} width='80px' height='55px' />
-            <p style={{ textAlign: 'center' }}>{ item.bread.name }</p>
-          </div>
-        </div>
-        <p style={{ fontSize: 14, fontWeight: 'bold', marginTop: 10 }}>
-          치즈 선택
-        </p>
-        <div style={{ display: 'flex', width: 315, backgroundColor: '#fff', flexDirection: 'row', marginTop: 10 }}>
-          <div>
-            <img src={item.cheese.image} width='80px' height='55px' />
-            <p style={{ textAlign: 'center' }}>{ item.cheese.name }</p>
-          </div>
-        </div>
-        <p style={{ fontSize: 14, fontWeight: 'bold', marginTop: 10 }}>
-          추가 선택
-        </p>
-        <div style={{ display: 'flex', width: 315, backgroundColor: '#fff', flexDirection: 'row', marginTop: 10 }}>
-          {_.map(item.toppings, (topping) => (
-            <div>
-              <img src={topping.image} />
-              <p style={{ textAlign: 'center' }}>{ topping.name }</p>
-            </div>
-          ))}
-        </div>
-        <p style={{ fontSize: 14, fontWeight: 'bold', marginTop: 10 }}>
-          토스팅 여부
-        </p>
-        <div style={{ display: 'flex', width: 315, backgroundColor: '#fff', flexDirection: 'row', marginTop: 10 }}>
-          <div>
-            <img src={item.toasting.image} width='80px' height='55px' />
-            <p style={{ textAlign: 'center' }}>{ item.toasting.name }</p>
-          </div>
-        </div>
-        <p style={{ fontSize: 14, fontWeight: 'bold', marginTop: 10 }}>
-          야채 선택
-        </p>
-        <div style={{ display: 'flex', width: 315, backgroundColor: '#fff', flexDirection: 'row', marginTop: 10 }}>
-        {_.map(item.vegetables, (veg) => (
-            <div>
-              <img src={veg.image} />
-              <p style={{ textAlign: 'center' }}>{ veg.name }</p>
-            </div>
-          ))}
-        </div>
-        <p style={{ fontSize: 14, fontWeight: 'bold', marginTop: 10 }}>
-          소스 선택
-        </p>
-        <div style={{ display: 'flex', width: 315, backgroundColor: '#fff', flexDirection: 'row', marginTop: 10, marginBottom: 20 }}>
-        {_.map(item.sauces, (sauce) => (
-            <div>
-              <img src={sauce.image} />
-              <p style={{ textAlign: 'center' }}>{ sauce.name }</p>
-            </div>
-          ))}
+        <div className='item-detail--container'>
+          { detail }
         </div>
       </div>
     )
   }
 
+  _getDetails = (item) => ([
+    { title: '메인 재료', multi: true, route: item.sandwich.main_ingredient },
+    { title: '빵 선택', multi: false, route: item.bread },
+    { title: '치즈 선택', multi: false, route: item.cheese },
+    { title: '추가 선택', multi: true, route: item.toppings },
+    { title: '토스팅 여부', multi: false, route: item.toasting },
+    { title: '야채 선택', multi: true, route: item.vegetables },
+    { title: '소스 선택', multi: true, route: item.sauces }
+  ])
+
+  // TODO(royhong): Use classnames library to combine both renderRight and renderLeft
   _renderRight (item, index) {
     const existing = _.get(this.state.details, item.id, false)
     return (
       <div key={index}>
         <div className='sandwich-item--right'>
-          <img src={item.sandwich.image_right} width='320px' height='165px' alt='sandwich_right' />
+          <img src={item.sandwich.image_right} className='sandwich-item__image' alt='sandwich_right' />
         </div>
         <div
           className='sandwich-item__details--right'
@@ -173,11 +136,11 @@ class Ranking extends React.Component {
             <div className='sandwich-item__divider-container--right'>
               <div className='sandwich-item__divider-container__divider' />
             </div>
-            {existing && this._showDetails(item)}
+            { existing && _.map(this._getDetails(item), category => this._showDetails(category)) }
           </div>
         </div>
         <div style={{ position: 'inline-block', float: 'right', width: 360, backgroundColor:'#efefef' }}>
-        <StatusBar id={index} likes={item.like_count} />
+          <StatusBar id={index} likes={item.like_count} />
         </div>
       </div>
     )
@@ -204,9 +167,9 @@ class Ranking extends React.Component {
               </p>
             </div>
             <div className='sandwich-item__divider-container--left'>
-          <div className='sandwich-item__divider-container__divider' />
-        </div>
-        {existing && this._showDetails(item)}
+              <div className='sandwich-item__divider-container__divider' />
+            </div>
+            { existing && _.map(this._getDetails(item), category => this._showDetails(category)) }
           </div>
         </div>
 
@@ -215,7 +178,6 @@ class Ranking extends React.Component {
     )
   }
 
-  // TODO(royhong): View should not assume data
   render () {
     const { items } = this.props
     const data = []

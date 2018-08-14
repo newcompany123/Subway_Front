@@ -13,6 +13,12 @@
         align-items: flex-start;
     }
 
+    &__image {
+        @extend .sandwich-item;
+        width: 32rem;
+        height: 16.5rem;
+    }
+
 
     &__divider-container {
         display: flex;

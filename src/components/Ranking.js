@@ -72,8 +72,7 @@ class Ranking extends React.Component {
   }
 
   _showDetails = (category) => {
-    let detail
-    detail = category.multi
+    const detail = category.multi
       ? _.map(category.route, item => (
         <div key={item.name}>
           <img src={item.image} className='item-detail__image' alt={item.name} />
@@ -139,9 +138,7 @@ class Ranking extends React.Component {
             { existing && _.map(this._getDetails(item), category => this._showDetails(category)) }
           </div>
         </div>
-        <div style={{ position: 'inline-block', float: 'right', width: 360, backgroundColor:'#efefef' }}>
           <StatusBar id={index} likes={item.like_count} />
-        </div>
       </div>
     )
   }
@@ -172,8 +169,7 @@ class Ranking extends React.Component {
             { existing && _.map(this._getDetails(item), category => this._showDetails(category)) }
           </div>
         </div>
-
-        <StatusBar id={index} likes={item.like_count} />
+          <StatusBar id={index} likes={item.like_count} highlight={existing} />
       </div>
     )
   }

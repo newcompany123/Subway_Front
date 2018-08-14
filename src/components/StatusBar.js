@@ -1,3 +1,4 @@
+import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -6,15 +7,18 @@ import { images } from '../common/ImageUtils'
 export default class StatusBar extends React.PureComponent {
   static propTypes = {
     likes: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
+    highlight: PropTypes.bool.isRequired
   };
 
   render () {
-    const { likes } = this.props
+    const { likes, id, highlight } = this.props
 
-    const statusBar = this.props.id % 2 === 0
-      ? 'status-bar--right'
-      : 'status-bar--left'
+    const statusBar = classNames(
+      { 'status-bar--right': id % 2 === 0 },
+      { 'status-bar--left' : id % 2 === 1 },
+      { 'status-bar--highlight': highlight }
+    )
 
     return (
       <div className={statusBar}>

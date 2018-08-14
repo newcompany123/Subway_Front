@@ -2,13 +2,22 @@
     &--left {
         @include status-bar;
         justify-content: flex-start;
-        margin-left: 1.6rem;
+        padding-left: 1.6rem;
     }
 
     &--right {
         @include status-bar;
         justify-content: flex-end;
-        margin-right: 1.6rem;
+        padding-right: 1.6rem;
+    }
+
+    &--highlight {
+        position: absolute;
+        left: 0;
+        width: 36rem;
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+        background-color: $color-LIGHT_GREY
     }
 }
 

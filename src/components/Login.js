@@ -1,9 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { images } from '../common/ImageUtils'
+import FacebookLogin from './FacebookLogin'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
+  onFacebookLogin = (loggedIn, result) => {
+    if (loggedIn === true) {
+      console.log('loginStatus true')
+      console.log(result)
+    } else {
+      alert('Facebook login error');
+    }
+  }
+
   render () {
     return (
       <div className='login-container'>
@@ -11,15 +22,7 @@ export default class Login extends React.Component {
           <div className='logo-container'>
             <img className='logo-container__logo' src={images.logo} alt='logo' />
           </div>
-          <div className='facebook-login'>
-            <a className='facebook-login__button'>
-              <img className='facebook-login__logo' src={images.fbLogo} alt='fb_logo' />
-              <div className='facebook-login--border' />
-              <p className='facebook-login__text'>
-                페이스북 계정으로 로그인
-              </p>
-            </a>
-          </div>
+          <FacebookLogin onLogin={this.onFacebookLogin} />
           <div className='kakao-login'>
             <a className='kakao-login--button'>
               <img className='kakao-login__logo' src={images.ktLogo} alt='kt_logo' />
@@ -47,3 +50,13 @@ export default class Login extends React.Component {
     )
   }
 }
+
+function mapStateToProps = (state) => ({
+
+})
+
+function mapDispatchToProps = {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

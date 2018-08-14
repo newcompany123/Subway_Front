@@ -1,7 +1,8 @@
 import axios from 'axios'
 
+import { PAGE_SIZE } from '../../common/Constants'
+
 const GET_RANKING = 'mysubway/sandwich/GET_RANKING'
-const PAGE_SIZE = 5
 
 export const actionTypes = {
   GET_RANKING

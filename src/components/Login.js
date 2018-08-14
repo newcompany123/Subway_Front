@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 
 import { images } from '../common/ImageUtils'
 import FacebookLogin from './FacebookLogin'
+import { actionCreators } from '../models/actions/user'
 
 class Login extends React.Component {
   onFacebookLogin = (loggedIn, result) => {
     if (loggedIn === true) {
-      console.log('loginStatus true')
-      console.log(result)
+      this.props.loginUser(result.authResponse.accessToken)
     } else {
       alert('Facebook login error');
     }
@@ -51,12 +51,12 @@ class Login extends React.Component {
   }
 }
 
-function mapStateToProps = (state) => ({
-
+const mapStateToProps = ({ user }) => ({
+  ...user
 })
 
-function mapDispatchToProps = {
-
+const mapDispatchToProps = {
+  loginUser: actionCreators.loginUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

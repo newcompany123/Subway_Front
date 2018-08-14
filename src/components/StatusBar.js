@@ -8,7 +8,7 @@ export default class StatusBar extends React.PureComponent {
   static propTypes = {
     likes: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
-    highlight: PropTypes.bool.isRequired
+    highlight: PropTypes.bool
   };
 
   render () {

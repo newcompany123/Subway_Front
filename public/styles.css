@@ -33,6 +33,10 @@ body {
   .search__icon {
     margin-left: 1rem;
     margin-right: 0.6rem; }
+  .search__filter {
+    background-color: transparent;
+    border-width: 0;
+    margin-left: 0.7rem; }
 
 .status-bar--left {
   display: flex;

@@ -2,11 +2,6 @@
   "name": "subway_front",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/recipe/*": {
-      "target": "http://subway-eb.ap-northeast-2.elasticbeanstalk.com"
-    }
-  },
   "dependencies": {
     "axios": "0.18.0",
     "bootstrap": "4.1.2",
@@ -15,6 +10,7 @@
     "lodash": "4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-facebook-login": "^4.0.1",
     "react-kakao-login": "^1.0.7",
     "react-redux": "5.0.7",
     "react-router-dom": "^4.3.1",

@@ -5,8 +5,10 @@ import { images } from '../../common/ImageUtils'
 import { actionCreators } from '../../models/actions/user'
 
 class Facebook extends React.Component {
-  componentDidMount () {
+  constructor (props) {
+    super(props)
     document.addEventListener('FBObjectReady', this.initializeFacebookLogin)
+    this.initializeFacebookLogin()
   }
 
   componentWillUnmount () {
@@ -15,10 +17,9 @@ class Facebook extends React.Component {
 
   _onFacebookLogin = (loggedIn, result) => {
     if (loggedIn === true) {
-      console.log('already logged in fb')
       this.props.loginUser(result.authResponse.accessToken)
     } else {
-      // alert('Facebook login error')
+      // TODO(royhong): Handle when user not logged in with FB?
     }
   }
 
@@ -41,7 +42,9 @@ class Facebook extends React.Component {
    * Check login status and call login api if user is not logged in
    */
   facebookLogin = () => {
-    if (!this.FB) return
+    if (!this.FB) {
+      return
+    }
 
     this.FB.getLoginStatus(response => {
       if (response.status === 'connected') {

@@ -8,7 +8,7 @@ export default class AppRouter extends React.Component {
   render () {
     return (
       <BrowserRouter>
-        <div>
+        <div className='router'>
           <Route exact path='/' component={Login} />
           <Route exact path='/ranking' component={Ranking} />
         </div>

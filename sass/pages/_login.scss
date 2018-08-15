@@ -100,9 +100,9 @@
     }
 
     &__text {
-        display: inline;
-        padding-left: 0.5rem;
-        padding-bottom: 4.3rem;
+        display: inline-block;
+        margin-left: 0.5rem;
+        margin-bottom: 4.3rem;
         font-size: 1.2rem;
         color: $color-WARM_GREY
     }

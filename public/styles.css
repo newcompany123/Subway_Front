@@ -1,8 +1,8 @@
 @media screen and (min-width: 40rem) {
-  .logo-container {
-    padding-top: 10rem; }
   .bottom-sandwich__image {
-    padding: 0 30rem; } }
+    display: none; }
+  .router {
+    padding: 10rem; } }
 
 *,
 *::after,
@@ -187,9 +187,9 @@ body {
     height: 1rem;
     justify-content: center; }
   .skip-container__text {
-    display: inline;
-    padding-left: 0.5rem;
-    padding-bottom: 4.3rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-bottom: 4.3rem;
     font-size: 1.2rem;
     color: #9b9b9b; }
 

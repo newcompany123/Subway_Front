@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import { images } from '../common/ImageUtils'
 
@@ -9,6 +9,9 @@ import Kakao from './Auth/Kakao'
 
 class Login extends React.Component {
   render () {
+    if (this.props.user.token) {
+      return <Redirect to='/ranking' />
+    }
     return (
       <div className='login-container'>
         <div className='login-container--main'>
@@ -37,7 +40,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = ({ user }) => ({
-  ...user
+  user
 })
 
 export default connect(mapStateToProps)(Login)

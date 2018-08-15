@@ -8,14 +8,23 @@ export const actionTypes = {
   LOGIN_USER
 }
 
-const loginUser = (accessToken) => async dispatch => {
+const loginFacebookUser = (accessToken) => async dispatch => {
   const response = await axios.post(
     `${SERVER}/user/facebook-login/`,
-    {'access_token': accessToken}
+    { 'access_token': accessToken }
+  )
+  dispatch({ type: LOGIN_USER, payload: response.data })
+}
+
+const loginKakaoUser = (accessToken) => async dispatch => {
+  const response = await axios.post(
+    `${SERVER}/user/kakao-login/`,
+    { 'access_token': accessToken }
   )
   dispatch({ type: LOGIN_USER, payload: response.data })
 }
 
 export const actionCreators = {
-  loginUser
+  loginFacebookUser,
+  loginKakaoUser
 }

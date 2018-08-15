@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { images } from '../common/ImageUtils'
-import { actionCreators } from '../models/actions/user'
+import { images } from '../../common/ImageUtils'
+import { actionCreators } from '../../models/actions/user'
 
-class FacebookLogin extends React.Component {
+class Facebook extends React.Component {
   componentDidMount () {
     document.addEventListener('FBObjectReady', this.initializeFacebookLogin)
   }
@@ -15,6 +15,7 @@ class FacebookLogin extends React.Component {
 
   _onFacebookLogin = (loggedIn, result) => {
     if (loggedIn === true) {
+      console.log('already logged in fb')
       this.props.loginUser(result.authResponse.accessToken)
     } else {
       // alert('Facebook login error')
@@ -86,7 +87,7 @@ class FacebookLogin extends React.Component {
 }
 
 const mapDispatchToProps = {
-  loginUser: actionCreators.loginUser
+  loginUser: actionCreators.loginFacebookUser
 }
 
-export default connect(null, mapDispatchToProps)(FacebookLogin)
+export default connect(null, mapDispatchToProps)(Facebook)

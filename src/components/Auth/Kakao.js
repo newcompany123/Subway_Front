@@ -1,7 +1,9 @@
 import React from 'react'
 import KakaoLogin from 'react-kakao-login'
+import { connect } from 'react-redux'
 
-import { images } from '../common/ImageUtils'
+import { images } from '../../common/ImageUtils'
+import { actionCreators } from '../../models/actions/user'
 
 class LoginButton extends React.PureComponent {
   render () {
@@ -19,13 +21,13 @@ class LoginButton extends React.PureComponent {
   }
 }
 
-export default class Kakao extends React.Component {
-  _onSuccess = (profile) => {
-    console.log(profile)
+class Kakao extends React.Component {
+  _onSuccess = ({ response }) => {
+    this.props.loginUser(response.access_token)
   }
 
   _onFailure = (error) => {
-    console.log(error)
+    console.error('Kakao Login Failure: ', error)
   }
 
   render () {
@@ -41,3 +43,9 @@ export default class Kakao extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = {
+  loginUser: actionCreators.loginKakaoUser
+}
+
+export default connect(null, mapDispatchToProps)(Kakao)

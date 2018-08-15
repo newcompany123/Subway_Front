@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 import { images } from '../common/ImageUtils'
 
-import FacebookLogin from './FacebookLogin'
-import Kakao from './Kakao'
+import Facebook from './Auth/Facebook'
+import Kakao from './Auth/Kakao'
 
 class Login extends React.Component {
   render () {
@@ -15,7 +15,7 @@ class Login extends React.Component {
           <div className='logo-container'>
             <img className='logo-container__logo' src={images.logo} alt='logo' />
           </div>
-          <FacebookLogin />
+          <Facebook />
           <Kakao />
           <div className='skip-container'>
             <Link to='/ranking'>

@@ -3,40 +3,81 @@
 
 @import "base/base";
 
+@import "components/button";
+
 @import "layout/search";
 @import "layout/status";
 
 @import "pages/login";
 @import "pages/ranking";
 
-.item-detail {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    margin-top: 10px;
-    margin-left: 20px;
+.filter-container {
 
-    &__title {
-        font-size: 14px;
+    &__subtitle {
+        margin: 2rem 0 2.4rem 2rem;
         font-weight: bold;
-        margin-top: 10px;
     }
 
-    &--container {
-        display: flex;
-        width: 315px;
-        background-color: $color-WHITE;
-        flex-direction: row;
-        margin-top: 10px;
+    &__border {
+        margin-top: 2rem;
+    }
+}
 
-        &__name {
-            text-align: center;
+.method-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+
+    &--method {
+        width: auto;
+        height: auto;
+        border-radius: 1.2rem;
+        padding: 3px 2px;
+        &:not(:last-child) {
+            margin-right: 2.3rem;
+        }
+
+        &--selected {
+            @extend .method-container--method;
+            background-color: $color-YELLOW;
+            box-shadow: 1px 1px 2px $SHADOW;
+        }
+
+        &__text {
+            font-size: 1.2rem;
+
+            &--selected {
+                @extend .method-container--method__text;
+                color: $color-WHITE;
+            }
         }
     }
+}
 
-    &__image {
-        width: 8rem;
-        height: 5.5rem;
+.category-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    min-height: auto;
+    overflow-x: auto;
+
+    &--content {
+        max-width: 100%;
+        white-space: nowrap;
+        height: auto;
+        border-radius: 1.2rem;
     }
+    &__button {
+        &:first-child {
+            margin-left: 1rem;
+        }
 
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
 }

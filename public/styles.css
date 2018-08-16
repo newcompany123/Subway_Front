@@ -19,6 +19,16 @@ html {
 body {
   box-sizing: border-box; }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #f1f1f1; }
+
+button {
+  border: none;
+  background-color: transparent; }
+
 .search {
   display: flex;
   justify-content: center; }
@@ -284,20 +294,66 @@ body {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  margin-top: 10px;
-  margin-left: 20px; }
+  margin-top: 1rem;
+  margin-left: 2rem; }
   .item-detail__title {
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: bold;
-    margin-top: 10px; }
+    margin-top: 1rem; }
   .item-detail--container {
     display: flex;
-    width: 315px;
+    width: 31.5rem;
     background-color: #ffffff;
     flex-direction: row;
-    margin-top: 10px; }
+    margin-top: 1rem; }
     .item-detail--container__name {
       text-align: center; }
   .item-detail__image {
     width: 8rem;
     height: 5.5rem; }
+
+.filter-container__subtitle {
+  margin: 2rem 0 2.4rem 2rem;
+  font-weight: bold; }
+
+.filter-container__border {
+  margin-top: 2rem; }
+
+.method-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem; }
+  .method-container--method, .method-container--method--selected {
+    width: auto;
+    height: auto;
+    border-radius: 1.2rem;
+    padding: 3px 2px; }
+    .method-container--method:not(:last-child), .method-container--method--selected:not(:last-child) {
+      margin-right: 2.3rem; }
+    .method-container--method--selected {
+      background-color: #ffcd00;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
+    .method-container--method__text, .method-container--method__text--selected {
+      font-size: 1.2rem; }
+      .method-container--method__text--selected {
+        color: #ffffff; }
+
+.category-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: auto;
+  overflow-x: auto; }
+  .category-container--content {
+    max-width: 100%;
+    white-space: nowrap;
+    height: auto;
+    border-radius: 1.2rem; }
+  .category-container__button:first-child {
+    margin-left: 1rem; }
+  .category-container__button:not(:last-child) {
+    margin-right: 1rem; }

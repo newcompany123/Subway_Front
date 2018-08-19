@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Observable } from 'rxjs/Observable'
 
-import { PAGE_SIZE, SERVER } from '../../common/Constants'
+import { PAGE_SIZE, SERVER } from '../common/Constants'
 
 const TIMEOUT = 1000
 

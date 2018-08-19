@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 import { images } from '../../common/ImageUtils'
 import { actionCreators } from '../../models/actions/user'
 
+// TODO(royhong): Fix Facebook Login automatically popup
 class Facebook extends React.Component {
   _onResponse = (response) => {
-    this.props.loginUser(response.accessToken)
+    this.props.loginUser('facebook', response.accessToken)
   }
 
   render () {
@@ -18,7 +19,7 @@ class Facebook extends React.Component {
         callback={this._onResponse}
         render={(renderProps) => (
           <div className='facebook-login'>
-            <button className='facebook-login__button' onClick={renderProps.onClick}>
+            <button onClick={renderProps.onClick} className='facebook-login__button'>
               <img className='facebook-login__logo' src={images.fbLogo} alt='fb_logo' />
               <div className='facebook-login--border' />
               <p className='facebook-login__text'>
@@ -33,7 +34,7 @@ class Facebook extends React.Component {
 }
 
 const mapDispatchToProps = {
-  loginUser: actionCreators.loginFacebookUser
+  loginUser: actionCreators.loginUser
 }
 
 export default connect(null, mapDispatchToProps)(Facebook)

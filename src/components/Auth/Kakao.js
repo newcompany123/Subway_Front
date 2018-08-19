@@ -23,7 +23,7 @@ class LoginButton extends React.PureComponent {
 
 class Kakao extends React.Component {
   _onSuccess = ({ response }) => {
-    this.props.loginUser(response.access_token)
+    this.props.loginUser('kakao', response.access_token)
   }
 
   _onFailure = (error) => {
@@ -45,7 +45,7 @@ class Kakao extends React.Component {
 }
 
 const mapDispatchToProps = {
-  loginUser: actionCreators.loginKakaoUser
+  loginUser: actionCreators.loginUser
 }
 
 export default connect(null, mapDispatchToProps)(Kakao)

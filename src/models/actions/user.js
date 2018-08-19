@@ -1,38 +1,23 @@
-import axios from 'axios'
-
-import { SERVER } from '../../common/Constants'
-
 const LOGIN_USER = 'mysubway/user/LOGIN_USER'
+const LOGIN_USER_SUCCEED = 'mysubway/user/LOGIN_USER_SUCCEED'
 
 export const actionTypes = {
-  LOGIN_USER
+  LOGIN_USER,
+  LOGIN_USER_SUCCEED
 }
 
-const loginFacebookUser = (accessToken) => async dispatch => {
-  try {
-    const response = await axios.post(
-      `${SERVER}/user/facebook-login/`,
-      { 'access_token': accessToken }
-    )
-    dispatch({ type: LOGIN_USER, payload: response.data })
-  } catch (error) {
-    // TODO(royhong): handle error
-  }
-}
+const loginUser = (source, accessToken) => ({
+  type: LOGIN_USER,
+  source,
+  accessToken
+})
 
-const loginKakaoUser = (accessToken) => async dispatch => {
-  try {
-    const response = await axios.post(
-      `${SERVER}/user/kakao-login/`,
-      { 'access_token': accessToken }
-    )
-    dispatch({ type: LOGIN_USER, payload: response.data })
-  } catch (error) {
-    // TODO(royhong): handle error
-  }
-}
+const loginUserSucceed = (user) => ({
+  type: LOGIN_USER_SUCCEED,
+  user
+})
 
 export const actionCreators = {
-  loginFacebookUser,
-  loginKakaoUser
+  loginUser,
+  loginUserSucceed
 }

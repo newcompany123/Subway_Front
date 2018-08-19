@@ -10,15 +10,13 @@ import reducers from './models/reducers'
 import { loadUser, saveUser } from './localStorage'
 import rootEpic from './models/epics'
 
-const epicMiddleware = createEpicMiddleware()
+const epicMiddleware = createEpicMiddleware(rootEpic)
 const persistedStore = loadUser()
 const store = createStore(reducers, persistedStore, applyMiddleware(epicMiddleware))
 
 store.subscribe(() => {
   saveUser(store.getState().user)
 })
-
-epicMiddleware.run(rootEpic)
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>,

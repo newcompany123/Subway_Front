@@ -11,13 +11,13 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOGIN_USER:
-      const data = action.payload
+    case actionTypes.LOGIN_USER_SUCCEED:
+      const user = action.user
       return produce(state, (draft) => {
-        draft.id = data.id
-        draft.username = data.username
-        draft.email = data.email
-        draft.token = data.token
+        draft.id = user.id
+        draft.username = user.username
+        draft.email = user.email
+        draft.token = user.token
       })
     default:
       return state

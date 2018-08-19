@@ -8,16 +8,30 @@
     &--right {
         @include status-bar;
         justify-content: flex-end;
-        padding-right: 1.6rem;
+        padding-left: 1.6rem;
     }
 
     &--highlight {
-        position: relative;
-        left: 0;
+        display: float;
         width: 36rem;
-        padding-bottom: 1rem;
         padding-top: 2rem;
-        background-color: $color-LIGHT_GREY
+        box-shadow: 1px 1px 1px $SHADOW;
+        background-color: $color-LIGHT_GREY;
+        border-radius: 4px;
+        padding-bottom: 2.4rem;
+    }
+
+    &--highlight--left {
+        @extend .status-bar--highlight;
+        float: left;
+        border-top-right-radius: 0;
+    }
+
+    &--highlight--right {
+        @extend .status-bar--highlight;
+        float: right;
+        border-top-left-radius: 0;
+
     }
 }
 

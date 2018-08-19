@@ -8,7 +8,7 @@
 
 .logo-container {
     justify-content: center;
-    padding-top: 19rem;
+    padding-top: 10rem;
     padding-bottom: 11rem;
     display: flex;
 
@@ -111,7 +111,7 @@
 .bottom-sandwich {
 
     &__image {
-        position: fixed;
+        position: absolute;
         bottom: 0;
         width: 100%;
         height: 13.4rem;

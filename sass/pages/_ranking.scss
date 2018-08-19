@@ -22,7 +22,7 @@
 
     &__divider-container {
         display: flex;
-        padding: 2;
+        padding: 2px;
 
         &--right {
             @extend .sandwich-item__divider-container;
@@ -62,15 +62,19 @@
         width: 36rem;
         height: auto;
         border-radius: 4px;
+
         background-color: $color-LIGHT_GREY;
+        box-shadow: 1px 1px 1px $SHADOW;
         z-index: -1;
 
         &--left {
             @extend .sandwich-item__container;
+            border-bottom-right-radius: 0;
             align-items: flex-start;
         }
         &--right {
             @extend .sandwich-item__container;
+            border-bottom-left-radius: 0;
             align-items: flex-end;
         }
 

@@ -17,7 +17,8 @@ export default class StatusBar extends React.PureComponent {
     const statusBar = classNames(
       { 'status-bar--right': id % 2 === 0 },
       { 'status-bar--left': id % 2 === 1 },
-      { 'status-bar--highlight': highlight }
+      { 'status-bar--highlight--left': highlight && id % 2 === 1 },
+      { 'status-bar--highlight--right': highlight && id % 2 === 0 }
     )
 
     return (

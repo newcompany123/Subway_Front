@@ -26,8 +26,7 @@ hr {
   border-top: 1px solid #f1f1f1; }
 
 button {
-  border: none;
-  background-color: transparent; }
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
 
 .search {
   display: flex;
@@ -55,6 +54,8 @@ button {
   padding-top: 1rem;
   justify-content: flex-start;
   padding-left: 1.6rem; }
+  .status-bar--left:last-child {
+    margin-bottom: 2rem; }
 
 .status-bar--right {
   display: flex;
@@ -62,15 +63,26 @@ button {
   align-items: center;
   padding-top: 1rem;
   justify-content: flex-end;
-  padding-right: 1.6rem; }
+  padding-left: 1.6rem; }
+  .status-bar--right:last-child {
+    margin-bottom: 2rem; }
 
-.status-bar--highlight {
-  position: relative;
-  left: 0;
+.status-bar--highlight, .status-bar--highlight--left, .status-bar--highlight--right {
+  display: float;
   width: 36rem;
-  padding-bottom: 1rem;
   padding-top: 2rem;
-  background-color: #f2f2f2; }
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  padding-bottom: 2.4rem; }
+
+.status-bar--highlight--left {
+  float: left;
+  border-top-right-radius: 0; }
+
+.status-bar--highlight--right {
+  float: right;
+  border-top-left-radius: 0; }
 
 .like-container {
   display: flex;
@@ -113,7 +125,7 @@ button {
 
 .logo-container {
   justify-content: center;
-  padding-top: 19rem;
+  padding-top: 10rem;
   padding-bottom: 11rem;
   display: flex; }
   .logo-container__logo {
@@ -208,7 +220,7 @@ button {
     color: #9b9b9b; }
 
 .bottom-sandwich__image {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 13.4rem;
@@ -227,7 +239,7 @@ button {
     height: 16.5rem; }
   .sandwich-item__divider-container, .sandwich-item__divider-container--right, .sandwich-item__divider-container--left {
     display: flex;
-    padding: 2; }
+    padding: 2px; }
     .sandwich-item__divider-container--right {
       justify-content: flex-end; }
     .sandwich-item__divider-container--left {
@@ -252,10 +264,13 @@ button {
     height: auto;
     border-radius: 4px;
     background-color: #f2f2f2;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     z-index: -1; }
     .sandwich-item__container--left {
+      border-bottom-right-radius: 0;
       align-items: flex-start; }
     .sandwich-item__container--right {
+      border-bottom-left-radius: 0;
       align-items: flex-end; }
     .sandwich-item__container__name-ranking, .sandwich-item__container__name-ranking--left, .sandwich-item__container__name-ranking--right {
       display: flex; }

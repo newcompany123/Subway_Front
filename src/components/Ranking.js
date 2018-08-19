@@ -1,10 +1,12 @@
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
 import { actionCreators } from '../models/actions/sandwich'
 
+import FilterModal from './FilterModal'
 import SearchBar from './SearchBar'
 import StatusBar from './StatusBar'
 
@@ -12,6 +14,8 @@ const initialState = {
   isLoading: false,
   error: false
 }
+
+Modal.setAppElement('#root')
 
 class Ranking extends React.Component {
   static propTypes = {
@@ -187,12 +191,13 @@ class Ranking extends React.Component {
       <div>
         <SearchBar />
         { data }
+        <FilterModal />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ sandwich }) => ({
+const mapStateToProps = ({ sandwich, screen }) => ({
   ...sandwich.Ranking
 })
 

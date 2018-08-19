@@ -12,7 +12,6 @@ export default {
         axios.post(`${SERVER}/user/${source}-login/`,
           { 'access_token': accessToken })
           .then((response) => {
-            console.log(response)
             observer.next(response.data)
             observer.complete()
           })

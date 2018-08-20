@@ -5,103 +5,10 @@
 
 @import "components/button";
 
+@import "layout/filter";
 @import "layout/search";
 @import "layout/status";
 
 @import "pages/login";
 @import "pages/ranking";
 
-.filter-container {
-
-    &__subtitle {
-        margin: 2rem 0 2.4rem 2rem;
-        font-weight: bold;
-    }
-
-    &__border {
-        margin-top: 2rem;
-    }
-}
-
-.method-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 2rem;
-
-    &--method {
-        width: auto;
-        height: auto;
-        border-width: 0;
-        padding: 3px 2px;
-        &:not(:last-child) {
-            margin-right: 2.3rem;
-        }
-
-        &--selected {
-            @extend .method-container--method;
-            background-color: $color-YELLOW;
-            box-shadow: 1px 1px 2px $SHADOW;
-        }
-
-        &__text {
-            font-size: 1.2rem;
-
-            &--selected {
-                @extend .method-container--method__text;
-                color: $color-WHITE;
-            }
-        }
-    }
-}
-
-.category-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-width: 100%;
-    min-height: auto;
-    overflow-x: auto;
-
-    &--content {
-        max-width: 100%;
-        white-space: nowrap;
-        height: auto;
-        border-radius: 1.2rem;
-    }
-
-    &__button {
-        margin-right: 1rem;
-        border-width: 0;
-        padding: 3px 2px;
-        border-width: 0;
-        width: auto;
-        height: auto;
-
-        &:first-child {
-            margin-left: 1rem;
-        }
-
-        &--selected {
-            @extend .category-container__button;
-            background-color: $color-YELLOW;
-            box-shadow: 1px 1px 2px $SHADOW;
-        }
-
-        &__text {
-            font-size: 1.2rem;
-
-            &--selected {
-                @extend .category-container__button__text;
-                color: $color-WHITE;
-            }
-        }
-    }
-
-    &__border {
-        margin-top: 14px;
-        margin-bottom: 10px;
-    }
-}

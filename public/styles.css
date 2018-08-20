@@ -31,6 +31,83 @@ button {
   background-color: transparent;
   box-shadow: none; }
 
+.filter-container__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .filter-container__header__title {
+    font-size: 16px;
+    font-weight: bold; }
+
+.filter-container--header-divider {
+  border-width: 3px;
+  margin-top: 17px; }
+
+.filter-container__subtitle {
+  margin: 2rem 0 2.4rem;
+  font-weight: bold; }
+
+.filter-container__border {
+  margin-top: 2rem; }
+
+.method-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 2rem;
+  min-width: 100%;
+  min-height: auto;
+  overflow-x: auto; }
+  .method-container--content {
+    max-width: 100%;
+    white-space: nowrap;
+    height: auto;
+    border-radius: 1.2rem; }
+  .method-container__button, .method-container__button--selected {
+    border-width: 0;
+    padding: 3px 2px; }
+    .method-container__button:not(:last-child), .method-container__button--selected:not(:last-child) {
+      margin-right: 2.3rem; }
+    .method-container__button--selected {
+      background-color: #ffcd00;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
+    .method-container__button__text, .method-container__button__text--selected {
+      font-size: 1.2rem; }
+      .method-container__button__text--selected {
+        color: #ffffff; }
+
+.category-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 100%;
+  min-height: auto;
+  overflow-x: auto; }
+  .category-container--content {
+    max-width: 100%;
+    white-space: nowrap;
+    height: auto;
+    border-radius: 1.2rem; }
+  .category-container__button, .category-container__button--selected {
+    margin-right: 1rem;
+    border-width: 0;
+    padding: 3px 2px;
+    border-width: 0;
+    width: auto;
+    height: auto; }
+    .category-container__button--selected {
+      background-color: #ffcd00;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
+    .category-container__button__text, .category-container__button__text--selected {
+      font-size: 1.2rem; }
+      .category-container__button__text--selected {
+        color: #ffffff; }
+  .category-container__border {
+    margin-top: 14px;
+    margin-bottom: 10px; }
+
 .search {
   display: flex;
   justify-content: center; }
@@ -329,64 +406,3 @@ button {
   .item-detail__image {
     width: 8rem;
     height: 5.5rem; }
-
-.filter-container__subtitle {
-  margin: 2rem 0 2.4rem 2rem;
-  font-weight: bold; }
-
-.filter-container__border {
-  margin-top: 2rem; }
-
-.method-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-right: 2rem; }
-  .method-container--method, .method-container--method--selected {
-    width: auto;
-    height: auto;
-    border-width: 0;
-    padding: 3px 2px; }
-    .method-container--method:not(:last-child), .method-container--method--selected:not(:last-child) {
-      margin-right: 2.3rem; }
-    .method-container--method--selected {
-      background-color: #ffcd00;
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
-    .method-container--method__text, .method-container--method__text--selected {
-      font-size: 1.2rem; }
-      .method-container--method__text--selected {
-        color: #ffffff; }
-
-.category-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  min-width: 100%;
-  min-height: auto;
-  overflow-x: auto; }
-  .category-container--content {
-    max-width: 100%;
-    white-space: nowrap;
-    height: auto;
-    border-radius: 1.2rem; }
-  .category-container__button, .category-container__button--selected {
-    margin-right: 1rem;
-    border-width: 0;
-    padding: 3px 2px;
-    border-width: 0;
-    width: auto;
-    height: auto; }
-    .category-container__button:first-child, .category-container__button--selected:first-child {
-      margin-left: 1rem; }
-    .category-container__button--selected {
-      background-color: #ffcd00;
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
-    .category-container__button__text, .category-container__button__text--selected {
-      font-size: 1.2rem; }
-      .category-container__button__text--selected {
-        color: #ffffff; }
-  .category-container__border {
-    margin-top: 14px;
-    margin-bottom: 10px; }

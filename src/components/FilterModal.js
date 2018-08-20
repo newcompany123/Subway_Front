@@ -3,6 +3,7 @@ import React from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
+import { images } from '../common/ImageUtils'
 import { actionCreators } from '../models/actions/screen'
 
 const METHOD = [
@@ -46,38 +47,51 @@ class FilterModal extends React.Component {
     })
   }
 
+  _closeFilterModal = () => {
+    this.props.closeFilterModal() && this.setState(makeInitialState());
+  }
+
   render () {
-    const { filterModalVisible, closeFilterModal } = this.props
+    const { filterModalVisible } = this.props
     return (
       <Modal
         isOpen={filterModalVisible}
-        onRequestClose={() => closeFilterModal() && this.setState(makeInitialState())}
+        onRequestClose={this._closeFilterModal}
       >
         <div className='filter-container'>
+          <div className='filter-container__header'>
+            <p className='filter-container__header__title'>
+              필터
+            </p>
+            <img src={images.icClose} alt='close' onClick={this._closeFilterModal} />
+          </div>
+          <hr className='filter-container--header-divider' />
           <p className='filter-container__subtitle'>
             정렬 방식
           </p>
           <div className='method-container'>
-            { _.map(METHOD, method => {
-              let buttonStyle
-              let textStyle
-              if (method.type === this.state.methodType) {
-                buttonStyle = 'method-container--method--selected'
-                textStyle = 'method-container--method__text--selected'
-              } else {
-                buttonStyle = 'method-container--method'
-                textStyle = 'method-container--method__text'
-              }
-              return (
-                <button
-                  key={method.type}
-                  className={buttonStyle}
-                  onClick={() => this._changeMethod(method)}
-                >
-                  <p className={textStyle}>{method.type}</p>
-                </button>
-              )
-            }) }
+            <div className='method-container--content'>
+              { _.map(METHOD, method => {
+                let buttonStyle
+                let textStyle
+                if (method.type === this.state.methodType) {
+                  buttonStyle = 'method-container__button--selected'
+                  textStyle = 'method-container__button__text--selected'
+                } else {
+                  buttonStyle = 'method-container__button'
+                  textStyle = 'method-container__button__text'
+                }
+                return (
+                  <button
+                    key={method.type}
+                    className={buttonStyle}
+                    onClick={() => this._changeMethod(method)}
+                  >
+                    <p className={textStyle}>{method.type}</p>
+                  </button>
+                )
+              }) }
+            </div>
           </div>
           <hr className='filter-container__border' />
           <p className='filter-container__subtitle'>

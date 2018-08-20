@@ -1,5 +1,6 @@
 import bgSandwich from '../assets/images/bg_sandwich.png'
 import bookmark from '../assets/images/bookmark.png'
+import icClose from '../assets/images/ic_close.svg'
 import icSearch from '../assets/images/ic_search.svg'
 import logo from '../assets/images/logo.png'
 import fbLogo from '../assets/images/logo_fb.svg'
@@ -15,6 +16,7 @@ const images = {
   bookmark,
   fbLogo,
   filter,
+  icClose,
   icSearch,
   ktLogo,
   rightArrow,

@@ -374,7 +374,10 @@ button {
   .category-container__button, .category-container__button--selected {
     margin-right: 1rem;
     border-width: 0;
-    padding: 3px 2px; }
+    padding: 3px 2px;
+    border-width: 0;
+    width: auto;
+    height: auto; }
     .category-container__button:first-child, .category-container__button--selected:first-child {
       margin-left: 1rem; }
     .category-container__button--selected {

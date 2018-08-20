@@ -21,5 +21,34 @@ export default {
       }, TIMEOUT)
       return () => clearTimeout(timerId)
     })
+  },
+  getCategoryList (methodType, category) {
+    return new Observable((observer) => {
+      const timerId = setTimeout(() => {
+        if (category === '모두') {
+          axios.get(`${SERVER}/ingredients/sandwich/`)
+            .then((response) => {
+              observer.next(response.data.results)
+              observer.complete()
+            })
+            .catch((error) => {
+              observer.error(error)
+              observer.complete()
+            })
+        } else {
+          const param = encodeURIComponent(category)
+          axios.get(`${SERVER}/ingredients/sandwich/?category=${param}`)
+            .then((response) => {
+              observer.next(response.data.results)
+              observer.complete()
+            })
+            .catch((error) => {
+              observer.error(error)
+              observer.complete()
+            })
+        }
+      }, TIMEOUT)
+      return () => clearTimeout(timerId)
+    })
   }
 }

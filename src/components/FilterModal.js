@@ -4,7 +4,8 @@ import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
 import { images } from '../common/ImageUtils'
-import { actionCreators } from '../models/actions/screen'
+import { actionCreators as sandwichActionCreators } from '../models/actions/sandwich'
+import { actionCreators as screenActionCreators } from '../models/actions/screen'
 
 const METHOD = [
   { type: '랭킹 높은 순' },
@@ -12,12 +13,13 @@ const METHOD = [
   { type: '저장 많은 순' },
   { type: '최신 등록 순' }
 ]
+
 const CATEGORY = [
   { status: '모두' },
   { status: '신제품' },
   { status: '프로모션' },
   { status: '클래식' },
-  { status: '프래쉬 & 라이트' },
+  { status: '프레쉬 & 라이트' },
   { status: '프리미엄' },
   { status: '아침메뉴' }
 ]
@@ -33,6 +35,15 @@ class FilterModal extends React.Component {
   constructor (props) {
     super(props)
     this.state = makeInitialState()
+    this.props.getCategoryList(this.state.category)
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    if (this.state.category !== nextState.category) {
+      this.props.getCategoryList(nextState.category)
+    }
+
+    return true
   }
 
   _changeMethod = (method) => {
@@ -48,7 +59,7 @@ class FilterModal extends React.Component {
   }
 
   _closeFilterModal = () => {
-    this.props.closeFilterModal() && this.setState(makeInitialState());
+    this.props.closeFilterModal() && this.setState(makeInitialState())
   }
 
   render () {
@@ -128,12 +139,14 @@ class FilterModal extends React.Component {
   }
 }
 
-const mapStateToProps = ({screen}) => ({
-  ...screen
+const mapStateToProps = ({sandwich, screen}) => ({
+  ...screen,
+  filteredItems: sandwich.FilterModal.items
 })
 
 const mapDispatchToProps = {
-  closeFilterModal: actionCreators.closeFilterModal
+  closeFilterModal: screenActionCreators.closeFilterModal,
+  getCategoryList: sandwichActionCreators.getCategoryList
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterModal)

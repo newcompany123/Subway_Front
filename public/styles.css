@@ -31,6 +31,25 @@ button {
   background-color: transparent;
   box-shadow: none; }
 
+.filter-container ul {
+  display: block;
+  float: center;
+  columns: 3; }
+  @media screen and (max-width: 470px) {
+    .filter-container ul {
+      columns: 2; } }
+
+.filter-container li {
+  margin: 0 0 10px 0; }
+
+.filter-container__category {
+  width: 350px;
+  margin: 0 auto; }
+  @media screen and (max-width: 470px) {
+    .filter-container__category {
+      width: 230px;
+      margin: 0 auto; } }
+
 .filter-container__header {
   display: flex;
   flex-direction: row;
@@ -49,6 +68,16 @@ button {
 
 .filter-container__border {
   margin-top: 2rem; }
+
+.filter-container__list > * {
+  padding: 1rem;
+  width: 110px;
+  height: 95px;
+  border-radius: 12px;
+  background-color: #ffcd00;
+  color: white; }
+  .filter-container__list > *__block {
+    margin: 0; }
 
 .method-container {
   display: flex;

@@ -120,7 +120,11 @@ class Ranking extends React.Component {
     return (
       <div key={index}>
         <div className='sandwich-item--right'>
-          <img src={item.sandwich.image_right} className='sandwich-item__image' alt='sandwich_right' />
+          <img
+            src={item.sandwich.image_right}
+            className='sandwich-item__image'
+            alt='sandwich_right'
+          />
         </div>
         <div
           className='sandwich-item__details--right'
@@ -151,7 +155,10 @@ class Ranking extends React.Component {
     return (
       <div key={index}>
         <div className='sandwich-item--left'>
-          <img src={item.sandwich.image_left} width='320px' height='165px' alt='sandwich_left' />
+          <img
+            src={item.sandwich.image_left}
+            className='sandwich-item__image'
+            alt='sandwich_left' />
         </div>
         <div
           className='sandwich-item__details--left'

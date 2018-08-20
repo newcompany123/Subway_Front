@@ -133,6 +133,46 @@ class FilterModal extends React.Component {
             </div>
           </div>
           <hr className='category-container__border' />
+          <div className='filter-container__category'>
+            <ul className='filter-container__list'>
+              <li className='filter-container__list__block'>
+                <div>
+                  <h2>Case Study Title</h2>
+                  <p>A catchy description for our case study. We worked hard.</p>
+                </div>
+              </li>
+              <li className='filter-container__list__block'>
+                <div>
+                  <h2>Case Study Title</h2>
+                  <p>A catchy description for our case study. We worked hard.</p>
+                </div>
+              </li>
+              <li className='filter-container__list__block'>
+                <div>
+                  <h2>Case Study Title</h2>
+                  <p>A catchy description for our case study. We worked hard.</p>
+                </div>
+              </li>
+              <li className='filter-container__list__block'>
+                <div>
+                  <h2>Case Study Title</h2>
+                  <p>A catchy description for our case study. We worked hard.</p>
+                </div>
+              </li>
+              <li className='filter-container__list__block'>
+                <div>
+                  <h2>Case Study Title</h2>
+                  <p>A catchy description for our case study. We worked hard.</p>
+                </div>
+              </li>
+              <li className='filter-container__list__block'>
+                <div>
+                  <h2>Case Study Title</h2>
+                  <p>A catchy description for our case study. We worked hard.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </Modal>
     )

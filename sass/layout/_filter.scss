@@ -1,6 +1,7 @@
 .filter-container {
     ul {
         display: block;
+        position: relative;
         float: center;
         @media screen and (max-width: 470px) {
             columns: 2;
@@ -8,8 +9,9 @@
         columns: 3;
     }
 
-    li {
-        margin: 0 0 10px 0;
+    button {
+        border-width: 0;
+        box-shadow: none;
     }
 
     &__category {
@@ -46,14 +48,27 @@
         margin-top: 2rem;
     }
 
+    &__container {
+        background-color: $color-WHITE;
+        margin: 0 0 10px 0;
+        min-height: 121px;
+        width: 110px;
+
+        &--selected {
+            @extend .filter-container__container;
+            background-color: $color-YELLOW;
+
+            p {
+                color: $color-WHITE;
+                font-weight: bold;
+            }
+        }
+    }
+
     &__list > * {
         padding: 1rem;
-        width: 110px;
-        min-height: 115px;
         border-radius: 12px;
         font-size: 12px;
-        background-color: $color-YELLOW;
-        color: $color-WHITE;
         text-align: center;
         page-break-inside: avoid;
 
@@ -64,30 +79,54 @@
                 display: block;
                 text-align: center;
 
-                img &__image {
+
+                img {
                     display: block;
-                    width: '100%';
                     margin: auto;
                 }
             }
+        }
+    }
+
+    &--frame {
+        height: 300px;
+        overflow-y: auto;
+        @media screen and (min-width: 470px) {
+            height: 280px;
+        }
+    }
+
+    &__submit-button {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 10px 0;
+        height: 46px;
+        border-radius: 10px;
+        background-color: $color-DARK_GREEN;
+        box-shadow: 1px 1px 2px $SHADOW;
+
+        p {
+            display: block;
+            line-height: 46px;
+            height: 100%;
+            text-align: center;
+            color: $color-WHITE;
+            font-size: 14px;
         }
     }
 }
 
 .method-container {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
     margin-right: 2rem;
-    min-width: 100%;
-    min-height: auto;
     overflow-x: auto;
 
     &--content {
-        max-width: 100%;
         white-space: nowrap;
-        height: auto;
         border-radius: 1.2rem;
     }
 
@@ -111,6 +150,7 @@
             &--selected {
                 @extend .method-container__button__text;
                 color: $color-WHITE;
+                font-weight: bold;
             }
         }
     }
@@ -118,27 +158,21 @@
 
 .category-container {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    min-width: 100%;
-    min-height: auto;
+    margin-right: 10px;
     overflow-x: auto;
 
     &--content {
-        max-width: 100%;
         white-space: nowrap;
-        height: auto;
         border-radius: 1.2rem;
     }
 
     &__button {
-        margin-right: 1rem;
         border-width: 0;
         padding: 3px 2px;
-        border-width: 0;
-        width: auto;
-        height: auto;
+
+        &:not(:last-child) {
+            margin-right: 2.3rem;
+        }
 
         &--selected {
             @extend .category-container__button;
@@ -152,6 +186,7 @@
             &--selected {
                 @extend .category-container__button__text;
                 color: $color-WHITE;
+                font-weight: bold;
             }
         }
     }

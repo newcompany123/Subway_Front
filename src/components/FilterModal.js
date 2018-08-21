@@ -77,82 +77,91 @@ class FilterModal extends React.Component {
             <img src={images.icClose} alt='close' onClick={this._closeFilterModal} />
           </div>
           <hr className='filter-container--header-divider' />
-          <p className='filter-container__subtitle'>
-            정렬 방식
-          </p>
-          <div className='method-container'>
-            <div className='method-container--content'>
-              { _.map(METHOD, method => {
-                let buttonStyle
-                let textStyle
-                if (method.type === this.state.methodType) {
-                  buttonStyle = 'method-container__button--selected'
-                  textStyle = 'method-container__button__text--selected'
-                } else {
-                  buttonStyle = 'method-container__button'
-                  textStyle = 'method-container__button__text'
-                }
-                return (
-                  <button
-                    key={method.type}
-                    className={buttonStyle}
-                    onClick={() => this._changeMethod(method)}
-                  >
-                    <p className={textStyle}>{method.type}</p>
-                  </button>
-                )
-              }) }
+          <div className='filter-container--frame'>
+            <div className='filter-container--frame--scroll'>
+              <p className='filter-container__subtitle'>
+                정렬 방식
+              </p>
+              <div className='method-container'>
+                <div className='method-container--content'>
+                  { _.map(METHOD, method => {
+                    let buttonStyle
+                    let textStyle
+                    if (method.type === this.state.methodType) {
+                      buttonStyle = 'method-container__button--selected'
+                      textStyle = 'method-container__button__text--selected'
+                    } else {
+                      buttonStyle = 'method-container__button'
+                      textStyle = 'method-container__button__text'
+                    }
+                    return (
+                      <button
+                        key={method.type}
+                        className={buttonStyle}
+                        onClick={() => this._changeMethod(method)}
+                      >
+                        <p className={textStyle}>{method.type}</p>
+                      </button>
+                    )
+                  }) }
+                </div>
+              </div>
+              <hr className='filter-container__border' />
+              <p className='filter-container__subtitle'>
+                카테고리
+              </p>
+              <div className='category-container'>
+                <div className='category-container--content'>
+                  { _.map(CATEGORY, category => {
+                    let buttonStyle
+                    let textStyle
+                    if (category.status === this.state.category) {
+                      buttonStyle = 'category-container__button--selected'
+                      textStyle = 'category-container__button__text--selected'
+                    } else {
+                      buttonStyle = 'category-container__button'
+                      textStyle = 'category-container__button__text'
+                    }
+                    return (
+                      <button
+                        key={category.status}
+                        className={buttonStyle}
+                        onClick={() => this._changeStatus(category)}
+                      >
+                        <p className={textStyle}>{category.status}</p>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+              <hr className='category-container__border' />
+              <div className='filter-container__category'>
+                <ul className='filter-container__list'>
+                  {_.map(filteredItems, (filter) => {
+                    return (
+                      <div className='filter-container__container--selected'>
+                        <button key={filter.id} className='filter-container__list__block'>
+                          <div className='filter-container__list__block--details'>
+                            <img
+                              className='filter-container__list__block--details__image'
+                              src={filter.image_full}
+                              width='84'
+                              height='60'
+                              alt='sandwich'
+                            />
+                            <p>{filter.name}</p>
+                          </div>
+                        </button>
+                      </div>
+                    )
+                  })}
+                </ul>
+              </div>
             </div>
           </div>
-          <hr className='filter-container__border' />
-          <p className='filter-container__subtitle'>
-            카테고리
-          </p>
-          <div className='category-container'>
-            <div className='category-container--content'>
-              { _.map(CATEGORY, category => {
-                let buttonStyle
-                let textStyle
-                if (category.status === this.state.category) {
-                  buttonStyle = 'category-container__button--selected'
-                  textStyle = 'category-container__button__text--selected'
-                } else {
-                  buttonStyle = 'category-container__button'
-                  textStyle = 'category-container__button__text'
-                }
-                return (
-                  <button
-                    key={category.status}
-                    className={buttonStyle}
-                    onClick={() => this._changeStatus(category)}
-                  >
-                    <p className={textStyle}>{category.status}</p>
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-          <hr className='category-container__border' />
-          <div className='filter-container__category'>
-            <ul className='filter-container__list'>
-              {_.map(filteredItems, (filter) => {
-                return (
-                  <li key={filter.id} className='filter-container__list__block'>
-                    <div className='filter-container__list__block--details'>
-                      <img
-                        className='filter-container__list__block--details__image'
-                        src={filter.image_full}
-                        width='84px'
-                        height='60px'
-                        alt='sandwich'
-                      />
-                      <p>{filter.name}</p>
-                    </div>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+          <button className='filter-container__submit-button'>
+            <p>필터 적용</p>
+          </button>
         </div>
       </Modal>
     )

@@ -27,7 +27,8 @@ const CATEGORY = [
 function makeInitialState () {
   return {
     methodType: METHOD[0].type,
-    category: CATEGORY[0].status
+    category: CATEGORY[0].status,
+    selectedItems: []
   }
 }
 
@@ -138,9 +139,28 @@ class FilterModal extends React.Component {
               <div className='filter-container__category'>
                 <ul className='filter-container__list'>
                   {_.map(filteredItems, (filter) => {
+                    let containerStyle
+                    if (this.state.selectedItems.find(object => object.id === filter.id)) {
+                      containerStyle = 'filter-container__container--selected'
+                    } else {
+                      containerStyle = 'filter-container__container'
+                    }
                     return (
-                      <div className='filter-container__container--selected'>
-                        <button key={filter.id} className='filter-container__list__block'>
+                      <div key={filter.id} className={containerStyle}>
+                        <button
+                          className='filter-container__list__block'
+                          onClick={() => {
+                            if (_.includes(this.state.selectedItems, filter)) {
+                              this.setState({
+                                selectedItems: _.reject(this.state.selectedItems, { id: filter.id })
+                              })
+                            } else {
+                              this.setState({
+                                selectedItems: this.state.selectedItems.concat(filter)
+                              })
+                            }
+                          }}
+                        >
                           <div className='filter-container__list__block--details'>
                             <img
                               className='filter-container__list__block--details__image'

@@ -2,9 +2,6 @@
     .bottom-sandwich__image {
         display: none;
     }
-    .router {
-      padding: 10rem;
-    }
 }
 
 
@@ -32,4 +29,13 @@ hr {
   height: 1px;
   border: 0;
   border-top: 1px solid $color-BORDER;
+}
+
+.router {
+  overflow-x: hidden;
+}
+
+// remove image border when clicked
+*:focus {
+  outline: none;
 }

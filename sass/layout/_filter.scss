@@ -49,13 +49,27 @@
     &__list > * {
         padding: 1rem;
         width: 110px;
-        height: 95px;
+        min-height: 115px;
         border-radius: 12px;
+        font-size: 12px;
         background-color: $color-YELLOW;
-        color: white;
+        color: $color-WHITE;
+        text-align: center;
+        page-break-inside: avoid;
 
         &__block {
             margin: 0;
+
+            &--details {
+                display: block;
+                text-align: center;
+
+                img &__image {
+                    display: block;
+                    width: '100%';
+                    margin: auto;
+                }
+            }
         }
     }
 }

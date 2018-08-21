@@ -72,12 +72,22 @@ button {
 .filter-container__list > * {
   padding: 1rem;
   width: 110px;
-  height: 95px;
+  min-height: 115px;
   border-radius: 12px;
+  font-size: 12px;
   background-color: #ffcd00;
-  color: white; }
+  color: #ffffff;
+  text-align: center;
+  page-break-inside: avoid; }
   .filter-container__list > *__block {
     margin: 0; }
+    .filter-container__list > *__block--details {
+      display: block;
+      text-align: center; }
+      img .filter-container__list > *__block--details__image {
+        display: block;
+        width: '100%';
+        margin: auto; }
 
 .method-container {
   display: flex;

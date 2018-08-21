@@ -63,7 +63,7 @@ class FilterModal extends React.Component {
   }
 
   render () {
-    const { filterModalVisible } = this.props
+    const { filterModalVisible, filteredItems } = this.props
     return (
       <Modal
         isOpen={filterModalVisible}
@@ -135,42 +135,22 @@ class FilterModal extends React.Component {
           <hr className='category-container__border' />
           <div className='filter-container__category'>
             <ul className='filter-container__list'>
-              <li className='filter-container__list__block'>
-                <div>
-                  <h2>Case Study Title</h2>
-                  <p>A catchy description for our case study. We worked hard.</p>
-                </div>
-              </li>
-              <li className='filter-container__list__block'>
-                <div>
-                  <h2>Case Study Title</h2>
-                  <p>A catchy description for our case study. We worked hard.</p>
-                </div>
-              </li>
-              <li className='filter-container__list__block'>
-                <div>
-                  <h2>Case Study Title</h2>
-                  <p>A catchy description for our case study. We worked hard.</p>
-                </div>
-              </li>
-              <li className='filter-container__list__block'>
-                <div>
-                  <h2>Case Study Title</h2>
-                  <p>A catchy description for our case study. We worked hard.</p>
-                </div>
-              </li>
-              <li className='filter-container__list__block'>
-                <div>
-                  <h2>Case Study Title</h2>
-                  <p>A catchy description for our case study. We worked hard.</p>
-                </div>
-              </li>
-              <li className='filter-container__list__block'>
-                <div>
-                  <h2>Case Study Title</h2>
-                  <p>A catchy description for our case study. We worked hard.</p>
-                </div>
-              </li>
+              {_.map(filteredItems, (filter) => {
+                return (
+                  <li key={filter.id} className='filter-container__list__block'>
+                    <div className='filter-container__list__block--details'>
+                      <img
+                        className='filter-container__list__block--details__image'
+                        src={filter.image_full}
+                        width='84px'
+                        height='60px'
+                        alt='sandwich'
+                      />
+                      <p>{filter.name}</p>
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>

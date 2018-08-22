@@ -50,5 +50,25 @@ export default {
       }, TIMEOUT)
       return () => clearTimeout(timerId)
     })
+  },
+  filterRanking (uriArr) {
+    return new Observable((observer) => {
+      const timerId = setTimeout(() => {
+        const sandwichParam = encodeURIComponent(uriArr[1])
+        axios.get(`${SERVER}/recipe/?${uriArr[0]}` +
+          `&sandwich=${sandwichParam}` +
+          `&search=${encodeURIComponent('위치')}` +
+          `&page=1&page_size=${PAGE_SIZE}`)
+          .then((response) => {
+            observer.next(response.data.results)
+            observer.complete()
+          })
+          .catch((error) => {
+            observer.error(error)
+            observer.complete()
+          })
+      }, TIMEOUT)
+      return () => clearTimeout(timerId)
+    })
   }
 }

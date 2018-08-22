@@ -179,7 +179,10 @@ class FilterModal extends React.Component {
               </div>
             </div>
           </div>
-          <button className='filter-container__submit-button'>
+          <button
+            className='filter-container__submit-button'
+            onClick={() => this.props.filterRanking(this.state.methodType, this.state.selectedItems)}
+          >
             <p>필터 적용</p>
           </button>
         </div>
@@ -195,7 +198,8 @@ const mapStateToProps = ({sandwich, screen}) => ({
 
 const mapDispatchToProps = {
   closeFilterModal: screenActionCreators.closeFilterModal,
-  getCategoryList: sandwichActionCreators.getCategoryList
+  getCategoryList: sandwichActionCreators.getCategoryList,
+  filterRanking: sandwichActionCreators.filterRanking
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterModal)

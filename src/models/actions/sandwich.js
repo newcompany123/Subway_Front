@@ -5,12 +5,17 @@ const GET_RANKING_FAILED = 'mysubway/sandwich/GET_RANKING_FAILED'
 const GET_CATEGORY_LIST = 'mysubway/sandwich/GET_CATEGORY_LIST'
 const GET_CATEGORY_LIST_SUCCEED = 'mysubway/sandwich/GET_CATEGORY_LIST_SUCCEED'
 
+const FILTER_RANKING = 'mysubway/sandwich/FILTER_RANKING'
+const FILTER_RANKING_SUCCEED = 'mysubway/sandwich/FILTER_RANKING_SUCCEED'
+
 export const actionTypes = {
   GET_RANKING,
   GET_RANKING_SUCCEED,
   GET_RANKING_FAILED,
   GET_CATEGORY_LIST,
-  GET_CATEGORY_LIST_SUCCEED
+  GET_CATEGORY_LIST_SUCCEED,
+  FILTER_RANKING,
+  FILTER_RANKING_SUCCEED
 }
 
 const getRanking = (page) => ({
@@ -37,10 +42,23 @@ const getCategoryListSucceed = (categoryList) => ({
   categoryList
 })
 
+const filterRanking = (methodType, list) => ({
+  type: FILTER_RANKING,
+  methodType,
+  list
+})
+
+const filterRankingSucceed = (filteredList) => ({
+  type: FILTER_RANKING_SUCCEED,
+  filteredList
+})
+
 export const actionCreators = {
   getRanking,
   getRankingSucceed,
   getRankingFailed,
   getCategoryList,
-  getCategoryListSucceed
+  getCategoryListSucceed,
+  filterRanking,
+  filterRankingSucceed
 }

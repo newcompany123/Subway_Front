@@ -23,6 +23,11 @@ export default (state = initialState, action) => {
       return produce(state, (draft) => {
         draft.FilterModal.items = action.categoryList
       })
+    case actionTypes.FILTER_RANKING_SUCCEED:
+      return produce(state, draft => {
+        draft.Ranking.page = 1
+        draft.Ranking.items = action.filteredList
+      })
     case actionTypes.GET_RANKING_FAILED: // Fallthrough
     default:
       return state

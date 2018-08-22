@@ -218,7 +218,7 @@ button {
 
 .status-bar--highlight, .status-bar--highlight--left, .status-bar--highlight--right {
   display: float;
-  width: 36rem;
+  width: 95%;
   padding-top: 2rem;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   background-color: #f2f2f2;
@@ -384,7 +384,7 @@ button {
   .sandwich-item--left {
     align-items: flex-start; }
   .sandwich-item__image {
-    width: 32rem;
+    width: 30rem;
     height: 16.5rem; }
   .sandwich-item__divider-container, .sandwich-item__divider-container--right, .sandwich-item__divider-container--left {
     display: flex;
@@ -409,7 +409,7 @@ button {
   .sandwich-item__container, .sandwich-item__container--left, .sandwich-item__container--right {
     display: flex;
     flex-direction: column;
-    width: 36rem;
+    width: 95%;
     height: auto;
     border-radius: 4px;
     background-color: #f2f2f2;
@@ -466,7 +466,7 @@ button {
     margin-top: 1rem; }
   .item-detail--container {
     display: flex;
-    width: 31.5rem;
+    width: 100%;
     background-color: #ffffff;
     flex-direction: row;
     margin-top: 1rem; }

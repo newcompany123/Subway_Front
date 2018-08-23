@@ -3,6 +3,7 @@ import bookmark from '../assets/images/bookmark.png'
 import icClose from '../assets/images/ic_close.svg'
 import icSearch from '../assets/images/ic_search.svg'
 import logo from '../assets/images/logo.png'
+import icLogo from '../assets/images/logo.svg'
 import fbLogo from '../assets/images/logo_fb.svg'
 import filter from '../assets/images/filter.svg'
 import ktLogo from '../assets/images/logo_kt.svg'
@@ -17,6 +18,7 @@ const images = {
   fbLogo,
   filter,
   icClose,
+  icLogo,
   icSearch,
   ktLogo,
   rightArrow,

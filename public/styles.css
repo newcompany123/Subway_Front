@@ -179,7 +179,8 @@ button {
 
 .search {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 6.5rem; }
   .search--border {
     display: inline-flex;
     border: 1px solid #9b9b9b;
@@ -223,7 +224,7 @@ button {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   background-color: #f2f2f2;
   border-radius: 4px;
-  padding-bottom: 2.4rem; }
+  margin-bottom: 2.4rem; }
 
 .status-bar--highlight--left {
   float: left;
@@ -475,3 +476,16 @@ button {
   .item-detail__image {
     width: 8rem;
     height: 5.5rem; }
+
+.header--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.header__logo {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: 125px;
+  max-height: 150px; }

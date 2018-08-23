@@ -12,3 +12,20 @@
 
 @import "pages/login";
 @import "pages/ranking";
+
+.header {
+    &--container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    &__logo {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        max-width: 125px;
+        max-height: 150px;
+    }
+}

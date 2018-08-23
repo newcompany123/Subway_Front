@@ -48,10 +48,10 @@ const iconStyle = {
   style: {
     top: 0,
     left: 0,
-    width: 20
+    width: 20,
+    ariaLabel: 'settings'
   },
-  color: 'primary',
-  ariaLabel: 'settings'
+  color: 'primary'
 }
 
 const settingsStyle = {
